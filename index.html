@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#061019">
+  <title>EBYTDA — Crypto IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">E</div>
+      <div><b>EBYTDA</b><span>CRYPTO IA</span></div>
+    </div>
+    <nav>
+      <button class="nav active" data-go="overview">◫ <span>Vue d'ensemble</span></button>
+      <button class="nav" data-go="universe">◎ <span>Top 100</span></button>
+      <button class="nav" data-go="quant">⌁ <span>Quantum Algorithm</span></button>
+      <button class="nav" data-go="fomo">⚡ <span>FOMO IA</span></button>
+      <button class="nav" data-go="history">↺ <span>Historique</span></button>
+    </nav>
+    <div class="engine">
+      <i></i>
+      <div><b>Moteur actif</b><small id="scanMode">Scan 1 h</small></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div>
+        <p class="kicker">AI MARKET COMMAND CENTER</p>
+        <h1>Radar Crypto IA</h1>
+      </div>
+      <div class="controls">
+        <div class="switcher">
+          <button data-lang="fr" class="active">FR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <div class="switcher">
+          <button data-cur="eur" class="active">€ EUR</button>
+          <button data-cur="usd">$ USD</button>
+        </div>
+        <button id="refresh" class="refresh" title="Actualiser">↻</button>
+      </div>
+    </header>
+
+    <section id="overview">
+      <div class="market-strip">
+        <article><span>Régime marché</span><b id="regime">—</b><small id="regimeSub">Analyse en cours</small></article>
+        <article><span>BTC 24 h</span><b id="btcChange">—</b><small id="btcPrice">—</small></article>
+        <article><span>Largeur positive</span><b id="breadth">—</b><small>Top 100</small></article>
+        <article><span>Prochain scan</span><b id="countdown">—</b><small id="lastScan">—</small></article>
+        <article class="accent"><span>CHOIX IA #1</span><b id="topSymbol">—</b><small id="topScore">—</small></article>
+      </div>
+
+      <section class="hero-card">
+        <div class="hero-left">
+          <div class="section-title">
+            <div><p class="kicker">MEILLEURE SYNTHÈSE DES 100</p><h2>Choix IA du moment</h2></div>
+            <span id="heroSignal" class="signal neutral">ANALYSE</span>
+          </div>
+
+          <div class="hero-asset">
+            <img id="heroImg" alt="">
+            <div>
+              <h3 id="heroName">Chargement…</h3>
+              <div class="price-row"><b id="heroPrice">—</b><span id="hero24h">—</span></div>
+            </div>
+          </div>
+
+          <p id="heroReason" class="reason">Croisement technique, fondamental, régime de marché et FOMO.</p>
+
+          <div class="scores">
+            <div><span>IA global</span><b id="sAi">—</b><i><em id="bAi"></em></i></div>
+            <div><span>Technique</span><b id="sTech">—</b><i><em id="bTech"></em></i></div>
+            <div><span>Fondamental</span><b id="sFund">—</b><i><em id="bFund"></em></i></div>
+            <div><span>Régime</span><b id="sReg">—</b><i><em id="bReg"></em></i></div>
+            <div><span>FOMO</span><b id="sFomo">—</b><i><em id="bFomo"></em></i></div>
+          </div>
+        </div>
+
+        <div class="trade-plan">
+          <div class="trade-head">
+            <div><span>PLAN D'ACTION</span><b id="planSymbol">—</b></div>
+            <div class="confidence"><span>Confiance</span><b id="confidence">—</b></div>
+          </div>
+
+          <div class="levels">
+            <div><span>Zone d'entrée</span><b id="entry">—</b></div>
+            <div><span>Stop / invalidation</span><b id="stop">—</b></div>
+            <div><span>TP1</span><b id="tp1">—</b></div>
+            <div><span>TP2</span><b id="tp2">—</b></div>
+          </div>
+
+          <div class="potential">
+            <span>SCÉNARIOS DE GAIN POTENTIEL</span>
+            <div>
+              <article><small>Prudent</small><b id="g1">—</b></article>
+              <article><small>Central</small><b id="g2">—</b></article>
+              <article><small>Favorable</small><b id="g3">—</b></article>
+            </div>
+          </div>
+
+          <div class="broker">
+            <b>EXÉCUTION MANUELLE</b>
+            <div>
+              <a href="https://www.bitget.com/" target="_blank" rel="noopener">Bitget ↗</a>
+              <a href="https://www.xtb.com/" target="_blank" rel="noopener">XTB ↗</a>
+              <a href="https://www.etoro.com/" target="_blank" rel="noopener">eToro ↗</a>
+            </div>
+            <small>Le dashboard fournit un signal et un plan. Il n'envoie aucun ordre.</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="fomo" class="panel">
+        <div class="section-title">
+          <div><p class="kicker">FOMO IA</p><h2>Top 3 opportunités</h2></div>
+          <div class="legend"><span><i class="green"></i>Ordre conseillé</span><span><i class="amber"></i>Pré-ordre</span><span><i class="blue"></i>À surveiller</span></div>
+        </div>
+        <div id="top3" class="top3"></div>
+      </section>
+
+      <section id="quant" class="panel">
+        <div class="section-title">
+          <div><p class="kicker">QUANTUM ALGORITHM</p><h2>Top 10 Algo</h2></div>
+          <div class="tiny">Technique + fondamental + régime + FOMO</div>
+        </div>
+        <div id="top10" class="top10"></div>
+      </section>
+    </section>
+
+    <section id="universe" class="panel">
+      <div class="section-title wrap">
+        <div><p class="kicker">CRYPTO UNIVERSE</p><h2>Top 100 cryptos analysées</h2></div>
+        <div class="filters">
+          <input id="search" type="search" placeholder="Rechercher BTC, ETH, SOL…">
+          <select id="statusFilter">
+            <option value="all">Tous les statuts</option>
+            <option value="order">Ordre conseillé</option>
+            <option value="preorder">Pré-ordre</option>
+            <option value="watch">À surveiller</option>
+            <option value="neutral">Neutre</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>#</th><th>Crypto</th><th>Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th>Volume</th>
+            <th>Tech.</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>IA</th><th>Signal</th>
+          </tr></thead>
+          <tbody id="cryptoRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="history" class="panel">
+      <div class="section-title">
+        <div><p class="kicker">TRACK RECORD</p><h2>Historique des choix IA</h2></div>
+        <button id="clearHistory" class="ghost">Vider</button>
+      </div>
+      <div id="historyList"></div>
+    </section>
+
+    <footer>
+      <span>EBYTDA Crypto IA — prototype fonctionnel</span>
+      <span>Les gains affichés sont des scénarios, pas des promesses de performance.</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
