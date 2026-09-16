@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#05080c">
+  <title>EBYTDA — Crypto IA Trading Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="logo-wrap" href="#radar" aria-label="EBYTDA">
+        <img class="exact-logo" src="assets/ebyt-da-logo.png" alt="EBYTDA">
+      </a>
+
+      <nav class="main-menu">
+        <button class="menu-item" data-nav="landing">Landing</button>
+        <button class="menu-item active" data-nav="radar" data-i18n="navRadar">Radar IA</button>
+        <button class="menu-item" data-nav="positions" data-i18n="navPositions">Positions ouvertes</button>
+        <button class="menu-item" data-nav="universe" data-i18n="navUniverse">Top 100</button>
+        <button class="menu-item" data-nav="history" data-i18n="navHistory">Historique</button>
+      </nav>
+
+      <div class="top-actions">
+        <div class="switcher">
+          <button data-lang="fr" class="active">FR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <div class="switcher">
+          <button data-cur="eur" class="active">€ EUR</button>
+          <button data-cur="usd">$ USD</button>
+        </div>
+        <button id="refreshBtn" class="icon-btn" title="Actualiser">↻</button>
+        <button id="authBtn" class="btn btn-blue small-btn">Portail Admin</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section id="landing" class="page-section landing-brand">
+      <div class="landing-copy">
+        <div class="eyebrow">AI ASSISTED CRYPTO TRADING</div>
+        <h1><span class="gold-text">EBYTDA</span> Trading Intelligence</h1>
+        <p>Un cockpit privé premium pour scanner le marché crypto, détecter les accélérations de momentum, analyser l’historique 90 jours, préparer un ordre manuel et suivre le P&amp;L dans une charte noir / or / bleu fidèle à l’univers EBYTDA.</p>
+        <div class="landing-actions">
+          <button id="openPortalBtn" class="btn btn-ai">EBYTDA TRADING IA →</button>
+          <button id="discoverBtn" class="btn btn-blue">Découvrir l’outil</button>
+        </div>
+        <div class="landing-pills">
+          <span>TOP 100 CoinGecko</span><span>Graphiques bougies</span><span>Top 3 FOMO</span><span>TOP 10 verrouillé</span><span>Ordres manuels</span><span>P&amp;L live</span>
+        </div>
+      </div>
+      <div class="landing-visual">
+        <div class="landing-frame"><img src="assets/brand-showcase.png" alt="EBYTDA showcase"></div>
+      </div>
+    </section>
+
+    <section class="security-strip">
+      <div class="security-info">
+        <span class="dot gold-dot"></span>
+        <div>
+          <strong id="authState">Portail admin verrouillé</strong>
+          <small id="authSub">Connectez-vous pour déverrouiller le ticket d’ordre et le suivi administrateur.</small>
+        </div>
+      </div>
+      <div class="security-tags">
+        <span>Role <b>ADMIN</b></span>
+        <span>Session <b id="sessionState">LOCKED</b></span>
+      </div>
+    </section>
+
+    <section id="radar" class="page-section">
+      <div class="intro">
+        <div>
+          <div class="eyebrow">EBYTDA • AI MARKET COMMAND CENTER</div>
+          <h1 data-i18n="title">Radar Crypto IA <span class="gold">Trading Desk</span></h1>
+          <p data-i18n="subtitle">100 cryptos scannées • TOP 10 éligible à l'ouverture manuelle d'une position • suivi P&L dynamique</p>
+        </div>
+        <div class="live-group">
+          <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
+          <span class="badge gold-badge">⏱ <span id="countdown">—</span></span>
+        </div>
+      </div>
+
+      <section id="adminGateCard" class="panel pad admin-gate-card">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">ADMIN SECURE PORTAL</div>
+            <h2>Portail sécurité administrateur</h2>
+            <p>Cette couche admin verrouille l’ouverture des tickets d’ordre et permet de sécuriser l’accès à la version premium du cockpit.</p>
+          </div>
+          <button id="openGateBtn" class="btn btn-ai small-btn">Connexion admin</button>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow" data-i18n="bestChoice">CHOIX IA N°1 PARMI LES 100</div>
+          <div class="hero-choice">
+            <div class="hero-coin">
+              <img id="heroImg" src="" alt="">
+              <div>
+                <div id="heroName" class="hero-name">Chargement…</div>
+                <div class="hero-price-line">
+                  <strong id="heroPrice">—</strong>
+                  <span id="hero24h">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-score">
+              <span data-i18n="aiScore">Score IA</span>
+              <b id="heroScore">—</b>
+              <small id="heroSignal">—</small>
+            </div>
+          </div>
+          <p id="heroReason" class="hero-reason">—</p>
+          <div class="hero-metrics">
+            <div class="mini"><span data-i18n="technical">Technique</span><b id="heroTech">—</b></div>
+            <div class="mini"><span data-i18n="fundamental">Fondamental</span><b id="heroFund">—</b></div>
+            <div class="mini"><span data-i18n="regime">Régime</span><b id="heroReg">—</b></div>
+            <div class="mini"><span>FOMO</span><b id="heroFomo">—</b></div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="alloc-row"><span data-i18n="marketBreadth">Largeur positive TOP 100</span><b id="breadth">—</b></div>
+          <div class="track"><div id="breadthFill" class="fill"></div></div>
+          <div class="alloc-row"><span>BTC 24 h</span><b id="btc24">—</b></div>
+          <div class="alloc-row"><span data-i18n="scanMode">Mode de scan</span><b id="scanMode">—</b></div>
+          <div class="risk-note" data-i18n="noForce">
+            L'IA classe les meilleures asymétries sans forcer une entrée si le marché est plat. Le passage d'ordre reste manuel.
+          </div>
+        </div>
+      </section>
+
+      <div class="kpis">
+        <article class="kpi"><div class="kpi-label" data-i18n="eligible">ACTIFS ÉLIGIBLES À L'ORDRE</div><div class="kpi-value gold">10</div><div class="kpi-sub" data-i18n="top10Only">Uniquement le TOP 10 Algo</div></article>
+        <article class="kpi"><div class="kpi-label" data-i18n="openPositions">POSITIONS OUVERTES</div><div id="kpiOpen" class="kpi-value">0</div><div id="kpiCapital" class="kpi-sub">—</div></article>
+        <article class="kpi"><div class="kpi-label">P&L LIVE</div><div id="kpiPnl" class="kpi-value">—</div><div id="kpiPnlPct" class="kpi-sub">—</div></article>
+        <article class="kpi"><div class="kpi-label" data-i18n="lastSync">DERNIÈRE SYNCHRO</div><div id="kpiSync" class="kpi-value">—</div><div class="kpi-sub" data-i18n="pricesEveryMinute">Prix positions : toutes les 60 s</div></article>
+      </div>
+
+      <section class="panel pad">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">FOMO IA</div>
+            <h2 data-i18n="top3Title">Top 3 — opportunités du moment</h2>
+            <p data-i18n="top3Hint">Cliquez sur le numéro d'une carte pour l'analyser et préparer un ordre manuel.</p>
+          </div>
+          <div class="legend">
+            <span><i class="lg green"></i><span data-i18n="orderAdvice">Passage conseillé</span></span>
+            <span><i class="lg amber"></i><span data-i18n="preOrder">Pré-ordre</span></span>
+            <span><i class="lg blue"></i><span data-i18n="watch">À surveiller</span></span>
+          </div>
+        </div>
+        <div id="top3" class="top3"></div>
+      </section>
+
+      <div class="grid">
+        <section class="panel chart-card">
+          <div class="chart-top">
+            <div class="coin-title">
+              <img id="chartImg" src="" alt="">
+              <div>
+                <div id="chartName" class="coin-name">—</div>
+                <div id="chartSymbol" class="coin-symbol">—</div>
+              </div>
+            </div>
+            <div>
+              <div id="chartPrice" class="price">—</div>
+              <div id="chartChange" class="price-change">—</div>
+            </div>
+          </div>
+
+          <div class="chart-toolbar">
+            <div class="tf-tabs">
+              <button class="tf-btn active" data-days="1">24H</button>
+              <button class="tf-btn" data-days="7">7J</button>
+              <button class="tf-btn" data-days="30">30J</button>
+              <button class="tf-btn" data-days="90">90J</button>
+            </div>
+            <div id="chartEligibility" class="eligibility">—</div>
+          </div>
+
+          <div id="chart"></div>
+          <div class="chart-foot">
+            <span id="chartStatus" data-i18n="candleSource">Bougies OHLC • CoinGecko</span>
+            <span class="countdown" id="chartRank">—</span>
+          </div>
+        </section>
+
+        <aside class="right-stack">
+          <section class="panel pad ai-panel">
+            <div class="panel-head">
+              <div>
+                <div class="ai-headline"><span class="ai-orb"></span><h2 data-i18n="actionPlan">Plan d'action IA</h2></div>
+                <p id="selectedStatus">—</p>
+              </div>
+              <div id="selectedScore" class="match-score">—</div>
+            </div>
+
+            <div class="ai-levels">
+              <div class="ai-level"><span data-i18n="entryZone">Zone d'entrée</span><b id="entryZone">—</b></div>
+              <div class="ai-level"><span data-i18n="invalidation">Stop / invalidation</span><b id="stopLevel">—</b></div>
+              <div class="ai-level"><span>TP1</span><b id="tp1Level">—</b></div>
+              <div class="ai-level"><span>TP2</span><b id="tp2Level">—</b></div>
+            </div>
+
+            <div id="selectedReason" class="ai-summary">—</div>
+
+            <div class="gain-grid">
+              <div><span data-i18n="prudent">Prudent</span><b id="gain1">—</b></div>
+              <div><span data-i18n="central">Central</span><b id="gain2">—</b></div>
+              <div><span data-i18n="favorable">Favorable</span><b id="gain3">—</b></div>
+            </div>
+
+            <button id="openOrderBtn" class="btn btn-ai" disabled data-i18n="prepareOrder">PRÉPARER L'ORDRE MANUEL</button>
+            <div id="orderEligibilityNote" class="ai-warning">—</div>
+          </section>
+
+          <section class="panel pad broker-links">
+            <div class="eyebrow" data-i18n="brokers">BROKERS</div>
+            <div class="broker-grid">
+              <a href="https://www.bitget.com/" target="_blank" rel="noopener">Bitget ↗</a>
+              <a href="https://www.xtb.com/" target="_blank" rel="noopener">XTB ↗</a>
+              <a href="https://www.etoro.com/" target="_blank" rel="noopener">eToro ↗</a>
+            </div>
+            <p data-i18n="brokerNote">Après exécution chez le broker, renseignez le prix réellement obtenu dans le ticket EBYTDA.</p>
+          </section>
+        </aside>
+      </div>
+
+      <section class="panel pad top10-panel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">QUANTUM ALGORITHM</div>
+            <h2 data-i18n="top10Title">TOP 10 ALGO — univers autorisé pour l'ouverture d'une position</h2>
+            <p data-i18n="top10Hint">Le numéro bleu/or est cliquable. Aucun actif hors TOP 10 ne peut ouvrir le ticket d'ordre.</p>
+          </div>
+        </div>
+        <div class="table-shell">
+          <table class="top10-table">
+            <thead><tr>
+              <th>#</th><th data-i18n="asset">Actif</th><th data-i18n="price">Prix</th><th>24 h</th><th data-i18n="technicalShort">Tech.</th>
+              <th data-i18n="fundamentalShort">Fond.</th><th data-i18n="regime">Régime</th><th>FOMO</th><th>IA</th><th data-i18n="signal">Signal</th>
+            </tr></thead>
+            <tbody id="top10Rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="positions" class="page-section panel pad">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow" data-i18n="liveBook">LIVE BOOK</div>
+          <h2 data-i18n="positionsTitle">Positions ouvertes — gains / pertes depuis l'exécution</h2>
+          <p data-i18n="positionsHint">Les prix sont resynchronisés automatiquement toutes les 60 secondes.</p>
+        </div>
+        <button id="refreshPositionsBtn" class="btn btn-blue small-btn" data-i18n="refreshPrices">Actualiser les prix</button>
+      </div>
+      <div id="positionsList" class="positions-list"></div>
+    </section>
+
+    <section id="universe" class="page-section panel pad">
+      <div class="panel-head universe-head">
+        <div>
+          <div class="eyebrow">CRYPTO UNIVERSE</div>
+          <h2 data-i18n="universeTitle">Top 100 cryptos scannées</h2>
+          <p data-i18n="universeHint">Consultation et graphique possibles. L'ouverture d'ordre reste verrouillée aux actifs du TOP 10.</p>
+        </div>
+        <div class="toolbar universe-tools">
+          <input id="search" class="control" type="search" placeholder="BTC, ETH, SOL…">
+          <select id="statusFilter" class="control">
+            <option value="all">Tous</option>
+            <option value="order">Ordre conseillé</option>
+            <option value="preorder">Pré-ordre</option>
+            <option value="watch">À surveiller</option>
+            <option value="neutral">Neutre</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-shell universe-table-shell">
+        <table>
+          <thead><tr>
+            <th>#</th><th data-i18n="asset">Actif</th><th data-i18n="price">Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th data-i18n="volume">Volume</th>
+            <th data-i18n="technicalShort">Tech.</th><th data-i18n="fundamentalShort">Fond.</th><th data-i18n="regime">Régime</th><th>FOMO</th><th>IA</th><th data-i18n="signal">Signal</th>
+          </tr></thead>
+          <tbody id="cryptoRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="history" class="page-section panel pad">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow" data-i18n="trackRecord">TRACK RECORD LOCAL</div>
+          <h2 data-i18n="historyTitle">Historique des positions clôturées</h2>
+        </div>
+        <button id="clearHistoryBtn" class="ghost-btn" data-i18n="clear">Vider</button>
+      </div>
+      <div id="closedList"></div>
+    </section>
+
+    <footer>
+      <span>EBYTDA Crypto IA • Trading Desk V3 Admin Portal</span>
+      <span data-i18n="footerRisk">Les scores et objectifs sont des aides à la décision. Les gains potentiels ne sont pas garantis.</span>
+    </footer>
+  </main>
+
+
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-auth></div>
+    <section class="modal-card auth-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">ADMIN SECURE PORTAL</div>
+          <h2>Connexion administrateur</h2>
+        </div>
+        <button class="modal-close" data-close-auth>×</button>
+      </div>
+      <div class="auth-brand-box">
+        <img src="assets/ebyt-da-logo.png" alt="EBYTDA">
+        <p>Déverrouillez la version premium du trading desk et les tickets d’ordre manuels.</p>
+      </div>
+      <div class="order-form">
+        <label><span>Email admin</span><input id="adminEmail" class="control" type="email" placeholder="admin@ebytda.local"></label>
+        <label><span>Code portail</span><input id="adminPass" class="control" type="password" placeholder="••••••••"></label>
+      </div>
+      <button id="loginBtn" class="btn btn-ai" style="margin-top:14px">Déverrouiller le portail</button>
+      <p class="fineprint">Démo front-end : mot de passe modifiable dans <b>app.js</b>. Pour la production, connecter une vraie authentification backend.</p>
+    </section>
+  </div>
+
+  <div id="orderModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow" data-i18n="manualOrder">ORDRE MANUEL</div>
+          <h2 id="modalAsset">—</h2>
+        </div>
+        <button class="modal-close" data-close-modal>×</button>
+      </div>
+
+      <div class="modal-lock">
+        <span data-i18n="eligibility">Éligibilité</span>
+        <b id="modalRank">TOP 10</b>
+      </div>
+
+      <div class="order-form">
+        <label>
+          <span data-i18n="brokerUsed">Broker utilisé</span>
+          <select id="brokerSelect" class="control">
+            <option value="Bitget">Bitget</option>
+            <option value="XTB">XTB</option>
+            <option value="eToro">eToro</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="direction">Sens</span>
+          <select id="sideSelect" class="control">
+            <option value="long">LONG / Achat</option>
+            <option value="short">SHORT / Vente</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="capital">Capital engagé</span>
+          <div class="input-suffix"><input id="capitalInput" class="control" type="number" min="1" step="10" value="1000"><b id="capitalCurrency">EUR</b></div>
+        </label>
+        <label>
+          <span data-i18n="executedPrice">Prix réellement exécuté</span>
+          <div class="input-suffix"><input id="executionInput" class="control" type="number" min="0" step="any"><b id="executionCurrency">EUR</b></div>
+        </label>
+      </div>
+
+      <div class="ticket-summary">
+        <div><span data-i18n="aiScore">Score IA</span><b id="ticketAi">—</b></div>
+        <div><span>FOMO</span><b id="ticketFomo">—</b></div>
+        <div><span data-i18n="invalidation">Stop / invalidation</span><b id="ticketStop">—</b></div>
+        <div><span>TP1 / TP2</span><b id="ticketTps">—</b></div>
+      </div>
+
+      <div class="manual-confirm">
+        <input id="manualCheck" type="checkbox">
+        <label for="manualCheck" data-i18n="manualCheck">Je confirme avoir réellement exécuté cet ordre manuellement chez le broker sélectionné.</label>
+      </div>
+
+      <button id="confirmOrderBtn" class="btn btn-ai" disabled data-i18n="confirmExecution">CONFIRMER L'EXÉCUTION ET SUIVRE LA POSITION</button>
+      <p class="fineprint" data-i18n="modalNote">EBYTDA n'envoie aucun ordre au broker : ce bouton enregistre uniquement votre exécution réelle pour suivre la position.</p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
