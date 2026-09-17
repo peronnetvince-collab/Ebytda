@@ -1,47 +1,17 @@
-# EBYTDA V23 — MULTI-SOURCE AUTO
+# EBYTDA Crypto IA V24 — CoinLore + Binance Engine
 
-Version destinée à éviter qu'un rate-limit CoinGecko ou une clé Twelve absente ne bloque tout le moteur.
+Correctif du Data Engine V23 : l’appel global CoinPaprika /tickers pouvait devenir trop lourd pour une Function Netlify et provoquer un HTTP 502.
 
-## Architecture données
+## Architecture
+- CoinLore : univers market-cap, 3 pages de 100 maximum.
+- CoinLore coin/info : vérification réelle de l’ancienneté (premier prix >= 730 jours), mise en cache.
+- Binance public market-data : prix positions + fenêtres 15m / 30m / 1h / 6h / 12h / 7j.
+- Binance daily klines : validation MTF 14j / 30j / 200j / 1an sur les meilleurs candidats et positions ouvertes.
+- AutoPilot n’ouvre aucun ordre tant que le MTF long du candidat n’est pas validé.
+- Aucun CoinGecko / CoinPaprika / Twelve Data requis pour le fonctionnement principal.
 
-- **CoinPaprika** = source principale du Top 200 mature. Aucun API key nécessaire pour le coeur de cette version.
-- **CoinGecko** = fallback serveur uniquement si CoinPaprika échoue. Une clé Demo/Pro Netlify reste optionnelle et améliore ce secours.
-- **Binance public market-data** = rafraîchissement rapide des prix des positions et bougies quand le symbole est disponible. Aucun API key requis.
-- **Frankfurter** = conversion d'affichage USD/EUR. Aucun API key requis.
-- Si toutes les sources d'univers échouent, le dernier snapshot valide peut être affiché pendant 1 h, mais **aucune nouvelle position AutoPilot n'est ouverte sur un snapshot stale**.
-
-## AutoPilot papier
-
-- 200 cryptos ayant au moins 2 ans de données
-- multi-timeframe : 15 min, 30 min, 1 h, 6 h, 12 h, 24 h, 7 j, 30 j, 1 an
-- 100 USDT par position, sans levier
-- objectif de noyau : 3 positions ouvertes lorsqu'un marché LIVE valide est disponible
-- maximum 15 positions
-- jusqu'à 5 nouvelles positions par scan
-- scan IA toutes les 15 min
-- mark-to-market des positions toutes les 15 s via Binance quand disponible
-- pas de stop-loss fixe / take-profit fixe ; sortie selon consensus IA, momentum, continuation, P&L et horizon
-
-## Déploiement Netlify / GitHub
-
-Remplacer à la racine :
-
-- `index.html`
-- `styles.css`
-- `app.js`
-- `assets/`
-- `functions/`
-- `netlify.toml`
-
-Le dossier `functions/` doit contenir `marketdata.js`.
-
-Variables Netlify **optionnelles** :
-
-- `COINGECKO_DEMO_API_KEY`
-- ou `COINGECKO_PRO_API_KEY`
-
-Aucune clé n'est nécessaire pour CoinPaprika/Binance/Frankfurter dans cette version.
+## Netlify
+Le dossier `functions/` doit contenir uniquement `marketdata.js`. Le `netlify.toml` pointe vers `functions`.
 
 ## Important
-
-L'AutoPilot exécute des **ordres papier/simulés uniquement**. Aucun ordre réel n'est envoyé à un broker.
+Paper trading uniquement. Aucun ordre réel n’est envoyé à un broker.
