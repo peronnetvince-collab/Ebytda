@@ -1,33 +1,22 @@
-# EBYTDA V18 — Clean Engine
+# EBYTDA Crypto IA V21 — AUTO EXEC
 
-Version reconstruite à partir de la V17, sans OR/PAXG et avec un moteur JavaScript nettoyé.
+Version axée sur le passage automatique des ordres papier.
 
-## Correctifs majeurs
-- Nouveau namespace localStorage V18 : aucune ancienne position corrompue n’est importée.
-- Capital initial : 3 000 USDT.
-- 100 USDT par position, sans levier.
-- 3 positions minimum si des candidats LIVE valides existent, 15 maximum.
-- Scan complet des 300 plus grosses capitalisations toutes les 15 minutes.
-- Valorisation des positions toutes les 15 secondes.
-- AutoPilot suspendu automatiquement lorsque les données CoinGecko LIVE sont indisponibles.
-- Mode fallback visuel pour éviter un dashboard figé.
-- LONG + SHORT, TECH / QUANT / Fondamental / Régime / FOMO / IA.
-- Listing Top 300, Top 3, Top 10, graphique, ordres manuels et historique.
-- P&L cohérent : capital réalisé = 3 000 + P&L net clôturé ; capital disponible = capital réalisé - 100 × positions ouvertes ; equity = capital réalisé + P&L latent.
-- USDT pour tous les calculs. EUR = affichage uniquement. Aucun OR.
+- Univers : 200 cryptos matures (2 ans+)
+- Multi-timeframe : 1 h, 24 h, 7 j, 14 j, 30 j, 200 j, 1 an
+- CoinGecko : source principale LIVE
+- Twelve Data : contrôle secondaire via Netlify Function
+- 100 USDT par position, sans levier
+- 3 positions de base visées si des candidats LIVE valides existent
+- jusqu’à 15 positions simultanées
+- jusqu’à 5 nouvelles ouvertures par scan
+- activation AutoPilot => recherche immédiate, sans attendre 15 min
+- scan complet toutes les 15 min
+- mark-to-market des positions toutes les 15 secondes
+- aucun stop-loss fixe / aucun take-profit fixe
+- clôture dynamique selon consensus IA, momentum, MTF, continuation et horizon
+- journal des ouvertures automatiques
 
-## Connexion
-- Login : admin@ebytda.local
-- Code : EBYTDA-ADMIN-2026
+IMPORTANT : les ordres de cette version sont des ordres de paper-trading/simulation. Aucun ordre réel n’est envoyé à Bitget, XTB, eToro ou un autre broker. Pour du trading réel, il faut une intégration backend sécurisée aux API officielles du broker.
 
-## Déploiement
-Remplacer :
-- index.html
-- styles.css
-- app.js
-- assets/
-
-Puis forcer une actualisation navigateur une fois (Ctrl+F5).
-
-## Important
-Simulation / paper-trading uniquement. Aucun ordre réel n’est envoyé à un broker.
+Pour Twelve Data, définir TWELVE_DATA_API_KEY dans les variables d’environnement Netlify. Ne jamais exposer la clé dans app.js.

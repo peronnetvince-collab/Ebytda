@@ -7,12 +7,12 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>EBYTDA — Crypto IA V18 Clean Engine</title>
+  <title>EBYTDA — Crypto IA V20 Clean Data Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
-  <link rel="stylesheet" href="styles.css?v=18.0.0">
+  <link rel="stylesheet" href="styles.css?v=20.0.0">
 </head>
 <body>
   <div id="toast" class="toast"></div>
@@ -30,7 +30,7 @@
       <nav id="privateNav" class="main-menu private-nav hidden">
         <button class="menu-item active" data-private-nav="radar">Dashboard</button>
         <button class="menu-item" data-private-nav="positions">Positions</button>
-        <button class="menu-item" data-private-nav="universe">Top 300</button>
+        <button class="menu-item" data-private-nav="universe">Top 200 • 2 ans+</button>
         <button class="menu-item" data-private-nav="history">Historique</button>
       </nav>
 
@@ -63,7 +63,7 @@
               <button id="learnMoreBtn" class="btn btn-secondary big-btn">COMMENT ÇA MARCHE</button>
             </div>
             <div class="public-trust">
-              <span>300 cryptos analysées</span><span>Top 3 FOMO</span><span>Top 10 éligible</span><span>AutoPilot + ordres manuels</span><span>P&amp;L suivi</span>
+              <span>200 cryptos matures analysées</span><span>Top 3 FOMO</span><span>Top 10 éligible</span><span>AutoPilot + ordres manuels</span><span>P&amp;L suivi</span>
             </div>
           </div>
           <div class="public-visual">
@@ -74,13 +74,13 @@
         <section id="howItWorks" class="public-section">
           <div class="section-center">
             <div class="eyebrow">COMMENT ÇA MARCHE</div>
-            <h2>De 300 cryptos à une décision lisible</h2>
+            <h2>De 200 cryptos matures à une décision lisible</h2>
             <p>La Home explique le parcours. L’analyse réelle et les ordres restent dans l’Espace personnel.</p>
           </div>
           <div class="how-grid">
             <article class="how-card">
               <div class="picto"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
-              <b>1. Univers Top 300</b><p>Le moteur scanne les 300 premières cryptos et compare momentum, liquidité, tendance et contexte.</p>
+              <b>1. Univers Top 200 • 2 ans+</b><p>Le moteur retient 200 cryptos ayant au moins 2 ans de recul et compare leurs tendances sur plusieurs horizons.</p>
             </article>
             <article class="how-card">
               <div class="picto"><svg viewBox="0 0 24 24"><path d="M4 18V9m5 9V5m5 13v-7m5 7V3"/><path d="m4 13 5-4 5 3 5-6"/></svg></div>
@@ -143,17 +143,19 @@
             <div>
               <div class="eyebrow">EBYTDA • AI MARKET COMMAND CENTER</div>
               <h1>Trading Intelligence <span class="gold">Dashboard</span></h1>
-              <p>300 plus grosses capitalisations • scan IA toutes les 15 min • LONG + SHORT • positions conservées jusqu’à 5 jours • 3 à 15 positions • 100 USDT sans levier</p>
+              <p>200 cryptos matures (2 ans+) • analyse multi-timeframe • scan IA toutes les 15 min • LONG + SHORT • 100 USDT sans levier</p>
             </div>
             <div class="live-group">
+              <span class="badge gold-badge">BUILD V20</span>
               <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
               <span class="badge gold-badge">⏱ <span id="countdown">—</span></span>
             </div>
           </div>
 
           <div class="kpis kpis-v5">
-            <article class="kpi credit-kpi"><div class="kpi-label">CRÉDITS DISPONIBLES</div><div id="creditBalance" class="kpi-value gold">10 000</div><div id="creditUsed" class="kpi-sub">0 utilisé</div></article>
-            <article class="kpi"><div class="kpi-label">ACTIFS SCANNÉS</div><div class="kpi-value">300</div><div class="kpi-sub">2 pages CoinGecko • Top market cap</div></article>
+            <article class="kpi data-kpi"><div class="kpi-label">COINGECKO</div><div id="coinGeckoStatus" class="kpi-value compact-value">INIT</div><div id="coinGeckoSub" class="kpi-sub">Source principale • marché + prix LIVE</div></article>
+            <article class="kpi data-kpi"><div class="kpi-label">TWELVE DATA</div><div id="twelveStatus" class="kpi-value compact-value">VÉRIFICATION</div><div id="twelveSub" class="kpi-sub">Clé vérifiée côté Netlify • jamais exposée au navigateur</div></article>
+            <article class="kpi"><div class="kpi-label">ACTIFS SCANNÉS</div><div class="kpi-value">200</div><div class="kpi-sub">2 ans+ • market cap • multi-timeframe</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL RÉALISÉ</div><div id="capitalTotal" class="kpi-value">3 000 USDT</div><div id="capitalTotalSub" class="kpi-sub">3 000 + P&amp;L net des positions clôturées uniquement</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL DISPONIBLE</div><div id="capitalFree" class="kpi-value">3 000 USDT</div><div id="capitalFreeSub" class="kpi-sub">Capital réalisé - capital engagé</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL ENGAGÉ</div><div id="marginUsed" class="kpi-value">0 USDT</div><div class="kpi-sub">100 USDT immobilisés par position ouverte</div></article>
@@ -167,7 +169,7 @@
 
           <section class="panel pad autopilot-panel">
             <div class="panel-head">
-              <div><div class="eyebrow">AUTO PILOT • SIMULATION</div><h2>Moteur automatique sur 300 cryptos • AI MANAGED</h2><p>À chaque scan de 15 min, les 300 plus grosses capitalisations sont réévaluées. Le moteur maintient un noyau d’au moins 3 positions lorsque des candidats valides existent et peut monter jusqu’à 15 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
+              <div><div class="eyebrow">AUTO PILOT • AUTO EXECUTE PAPER</div><h2>Moteur automatique sur 200 cryptos matures • MTF AI • AUTO EXECUTE</h2><p>À chaque scan de 15 min, 200 cryptos disposant d’au moins 2 ans de recul sont réévaluées sur 1 h, 24 h, 7 j, 14 j, 30 j, 200 j et 1 an. Dès qu’AutoPilot est ON et que les données LIVE sont disponibles, le moteur exécute automatiquement un noyau pouvant aller jusqu’à 3 positions parmi les meilleurs candidats valides, puis peut compléter progressivement jusqu’à 15 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
               <label class="auto-switch"><input id="autoPilotToggle" type="checkbox" checked><span></span><b id="autoPilotLabel">AUTO ON</b></label>
             </div>
             <div class="auto-stats">
@@ -177,12 +179,12 @@
               <article><span>Frais proxy A/R</span><b id="feeProxy">0,8733 %</b></article>
               <article><span>Base compte</span><b>3 000 USDT</b></article><article><span>Horizon IA</span><b>6 h → 5 j</b></article><article><span>Réentrée même actif</span><b>cooldown 6 h</b></article>
             </div>
-            <p class="auto-disclaimer">Le mode AUTO de cette V18 est un <b>paper-trading/simulateur</b>. Aucun ordre réel n’est envoyé à Bitget, XTB ou eToro. Frais A/R simulés via une moyenne configurable des 3 brokers ; spread, funding/swap et frais réels peuvent différer. La connexion réelle nécessitera un backend sécurisé et les API officielles du broker.</p>
+            <p class="auto-disclaimer">Le mode AUTO de cette V20 est un <b>paper-trading/simulateur</b>. Aucun ordre réel n’est envoyé à Bitget, XTB ou eToro. Frais A/R simulés via une moyenne configurable des 3 brokers ; spread, funding/swap et frais réels peuvent différer. La connexion réelle nécessitera un backend sécurisé et les API officielles du broker.</p>
           </section>
 
           <section class="panel pad premium-choice">
             <div class="panel-head">
-              <div><div class="eyebrow">CHOIX PREMIUM IA</div><h2>Meilleure synthèse parmi les 300 cryptos</h2><p>Le choix premium est recalculé sur 300 actifs. L’AutoPilot applique ensuite le Risk Engine avant toute ouverture simulée.</p></div>
+              <div><div class="eyebrow">CHOIX PREMIUM IA</div><h2>Meilleure synthèse parmi les 200 cryptos matures</h2><p>Le choix premium est recalculé sur 200 actifs matures avec cohérence multi-timeframe. L’AutoPilot applique ensuite le Risk Engine avant toute ouverture simulée.</p></div>
               <div class="premium-rank">#1</div>
             </div>
             <div class="hero-choice">
@@ -197,6 +199,7 @@
             <div class="engine-flow">
               <article><span>ALGO TECHNIQUE</span><b id="engineTech">—</b><small>Momentum • tendance • volume • volatilité</small></article><i>→</i>
               <article><span>MOTEUR QUANT</span><b id="engineQuant">—</b><small>Robustesse statistique • stabilité • flux</small></article><i>→</i>
+              <article><span>MULTI-TIMEFRAME</span><b id="engineMtf">—</b><small>1 h • 24 h • 7 j • 14 j • 30 j • 200 j • 1 an</small></article><i>→</i>
               <article><span>FONDAMENTAL</span><b id="engineFund">—</b><small>Qualité • liquidité • drawdown • capitalisation</small></article><i>→</i>
               <article><span>RÉGIME</span><b id="engineRegime">—</b><small>Risk-on • risk-off • range • rotation</small></article><i>→</i>
               <article class="engine-final"><span>FOMO IA</span><b id="engineFomo">—</b><small>Fusion + priorité d’action</small></article>
@@ -205,14 +208,14 @@
 
           <section class="panel pad">
             <div class="panel-head">
-              <div><div class="eyebrow">FOMO IA</div><h2>Top 3 — consensus IA LONG / SHORT</h2><p>Le moteur compare les scénarios LONG et SHORT sur les 300 actifs. Une position déjà ouverte n’est jamais recréée à chaque scan.</p></div>
+              <div><div class="eyebrow">FOMO IA</div><h2>Top 3 — consensus IA LONG / SHORT</h2><p>Le moteur compare les scénarios LONG et SHORT sur les 200 actifs matures et exige une cohérence entre horizons. Une position déjà ouverte n’est jamais recréée à chaque scan.</p></div>
               <div class="legend"><span><i class="lg green"></i>Passage conseillé</span><span><i class="lg amber"></i>Pré-ordre</span><span><i class="lg blue"></i>À surveiller</span></div>
             </div>
             <div id="top3" class="top3"></div>
           </section>
 
           <section class="panel pad crypto-map-panel">
-            <div class="panel-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Vue en liste du Top 300</h2><p>Version plus propre et plus lisible : classement compact des 300 cryptos, avec scores IA et sens LONG / SHORT. Cliquez sur une ligne pour charger le graphique.</p></div><div class="universe-legend"><span class="u-hot">IA ≥ 80</span><span class="u-mid">IA 65–79</span><span class="u-low">IA &lt; 65</span></div></div>
+            <div class="panel-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Vue en liste du Top 200 • 2 ans+</h2><p>Version plus propre et plus lisible : classement compact des 200 cryptos de plus de 2 ans, avec scores IA et sens LONG / SHORT. Cliquez sur une ligne pour charger le graphique.</p></div><div class="universe-legend"><span class="u-hot">IA ≥ 80</span><span class="u-mid">IA 65–79</span><span class="u-low">IA &lt; 65</span></div></div>
             <div id="cryptoGrid100" class="crypto-list-panel"></div>
           </section>
 
@@ -232,7 +235,7 @@
             <aside class="right-stack">
               <section class="panel pad ai-panel">
                 <div class="panel-head"><div><div class="ai-headline"><span class="ai-orb"></span><h2>Plan d’action IA</h2></div><p id="selectedStatus">—</p></div><div id="selectedScore" class="match-score">—</div></div>
-                <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>FOMO</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>EXPOSITION</span><b id="selLeverage">100 USDT</b></div></div>
+                <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>FOMO</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>MTF</span><b id="selMtf">—</b></div><div><span>EXPOSITION</span><b id="selLeverage">100 USDT</b></div></div>
                 <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Sortie défensive</span><b id="stopLevel">IA dynamique</b></div><div class="ai-level"><span>Prise de gain</span><b id="tp1Level">IA dynamique</b></div><div class="ai-level"><span>Horizon maximum</span><b id="tp2Level">5 jours</b></div></div>
                 <div id="selectedReason" class="ai-summary">—</div>
                 <div class="gain-grid"><div><span>Momentum</span><b id="gain1">—</b></div><div><span>Continuation</span><b id="gain2">—</b></div><div><span>Sortie IA</span><b id="gain3">DYNAMIQUE</b></div></div>
@@ -247,14 +250,14 @@
 
           <section class="panel pad top10-panel">
             <div class="panel-head"><div><div class="eyebrow">QUANTUM ALGORITHM</div><h2>TOP 10 ALGO — univers manuel autorisé</h2><p>Le TOP 10 reste accessible au mode manuel. L’AutoPilot automatique travaille prioritairement sur les 3 meilleurs FOMO.</p></div></div>
-            <div class="table-shell"><table class="top10-table"><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>24 h</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>IA</th><th>Direction</th><th>Signal</th><th>Action</th></tr></thead><tbody id="top10Rows"></tbody></table></div>
+            <div class="table-shell"><table class="top10-table"><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>24 h</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>MTF</th><th>IA</th><th>Direction</th><th>Signal</th><th>Action</th></tr></thead><tbody id="top10Rows"></tbody></table></div>
           </section>
         </section>
 
         <section id="positions" class="page-section panel pad">
-          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — 3 minimum / 15 maximum</h2><p>Toutes les 15 min, AutoPilot maintient au moins 3 positions et peut monter jusqu’à 15 si le consensus est assez fort. Aucun stop-loss fixe ni take-profit fixe : l’IA suit le momentum, la continuation, le P&L et l’horizon et décide seule du closing.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
+          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — 3 minimum / 15 maximum</h2><p>AutoPilot exécute les positions papier automatiquement : il vise jusqu’à 3 positions de base quand des candidats LIVE valides existent, puis peut monter jusqu’à 15 si le consensus est assez fort. Aucun stop-loss fixe ni take-profit fixe : l’IA suit le momentum, la continuation, le P&L et l’horizon et décide seule du closing.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
           <div class="auto-mechanism-strip">
-            <span><b>300</b><small>capitalisations scannées</small></span>
+            <span><b>200</b><small>cryptos matures 2 ans+</small></span>
             <span><b>15 min</b><small>cycle IA</small></span>
             <span><b>3 max</b><small>nouvelles entrées / scan</small></span>
             <span><b>15 max</b><small>positions simultanées</small></span>
@@ -265,12 +268,12 @@
         </section>
 
         <section id="universe" class="page-section panel pad">
-          <div class="panel-head universe-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Listing complet des 300 cryptos</h2><p>Consultation et graphique libres. Ticket d’ordre bloqué si l’actif sort du TOP 10.</p></div><div class="toolbar universe-tools"><input id="search" class="control" type="search" placeholder="BTC, ETH, SOL…"><select id="statusFilter" class="control"><option value="all">Tous</option><option value="order">Ordre conseillé</option><option value="preorder">Pré-ordre</option><option value="watch">À surveiller</option><option value="neutral">Neutre</option></select></div></div>
-          <div class="table-shell universe-table-shell"><table><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th>Volume</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>IA</th><th>Direction</th><th>Signal</th></tr></thead><tbody id="cryptoRows"></tbody></table></div>
+          <div class="panel-head universe-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Listing complet des 200 cryptos matures</h2><p>Consultation et graphique libres. Ticket d’ordre bloqué si l’actif sort du TOP 10.</p></div><div class="toolbar universe-tools"><input id="search" class="control" type="search" placeholder="BTC, ETH, SOL…"><select id="statusFilter" class="control"><option value="all">Tous</option><option value="order">Ordre conseillé</option><option value="preorder">Pré-ordre</option><option value="watch">À surveiller</option><option value="neutral">Neutre</option></select></div></div>
+          <div class="table-shell universe-table-shell"><table><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th>30 j</th><th>200 j</th><th>1 an</th><th>Recul</th><th>Volume</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>MTF</th><th>IA</th><th>Direction</th><th>Signal</th></tr></thead><tbody id="cryptoRows"></tbody></table></div>
         </section>
 
         <section id="history" class="page-section panel pad">
-          <div class="panel-head"><div><div class="eyebrow">AUTO PILOT JOURNAL</div><h2>Journal AutoPilot — décisions et ouvertures toutes les 15 min</h2><p>Chaque scan conserve les décisions IA, le candidat minimum du cycle, les ouvertures additionnelles, le Risk Score, le levier et l’horizon.</p></div></div>
+          <div class="panel-head"><div><div class="eyebrow">AUTO PILOT JOURNAL</div><h2>Journal AutoPilot — décisions et ouvertures toutes les 15 min</h2><p>Chaque scan conserve les décisions IA, le candidat minimum du cycle, les ouvertures additionnelles, le Risk Score, le score multi-timeframe et l’horizon.</p></div></div>
           <div id="decisionList" class="decision-list"></div>
           <div class="history-separator"></div>
           <div class="panel-head"><div><div class="eyebrow">TRACK RECORD LOCAL</div><h2>Historique des positions clôturées</h2><p>Vue plus clean et lisible : résumé en live, rendement net, durée, entrée/sortie, frais et performance par ligne.</p></div><span class="history-protected">CUMUL PERMANENT</span></div>
@@ -279,7 +282,7 @@
           <div id="closedList" class="closed-cards"></div>
         </section>
 
-        <footer><span>EBYTDA Crypto IA V18 • Clean Engine • 3–15 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
+        <footer><span>EBYTDA Crypto IA V21 • Auto Execute • Mature 200 • Multi-Timeframe • 3–15 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
       </div>
     </section>
   </main>
@@ -288,7 +291,7 @@
     <div class="modal-backdrop" data-close-auth></div>
     <section class="modal-card auth-card">
       <div class="modal-head"><div><div class="eyebrow">ESPACE PERSONNEL</div><h2>Connexion administrateur</h2></div><button class="modal-close" data-close-auth>×</button></div>
-      <div class="auth-brand-box"><img src="assets/ebyt-da-logo.png" alt="EBYTDA"><p>Accès au dashboard, au Top 300, aux tickets d’ordre, aux positions ouvertes et aux alertes de sortie.</p></div>
+      <div class="auth-brand-box"><img src="assets/ebyt-da-logo.png" alt="EBYTDA"><p>Accès au dashboard, au Top 200 • 2 ans+, aux tickets d’ordre, aux positions ouvertes et aux alertes de sortie.</p></div>
       <div class="order-form"><label><span>Email admin</span><input id="adminEmail" class="control" type="email" value="admin@ebytda.local"></label><label><span>Code portail</span><input id="adminPass" class="control" type="password" placeholder="••••••••"></label></div>
       <button id="loginBtn" class="btn btn-ai modal-main-btn">ACCÉDER À MON ESPACE</button>
       <p class="fineprint">Sécurité front-end de démonstration. Pour la production, connecter une authentification serveur.</p>
@@ -315,6 +318,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=18.0.0"></script>
+  <script src="app.js?v=20.0.0"></script>
 </body>
 </html>
