@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#05080d">
+  <title>EBYTDA — Crypto IA V6 SwingDay 300</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topnav">
+    <div class="topnav-inner">
+      <button id="logoHomeBtn" class="logo-wrap logo-button" aria-label="Accueil EBYTDA"><img class="exact-logo" src="assets/ebyt-da-logo.png" alt="EBYTDA"></button>
+
+      <nav id="publicNav" class="main-menu public-nav">
+        <button class="menu-item active" data-public-nav="publicHome">Accueil</button>
+        <button class="menu-item" data-public-nav="howItWorks">Comment ça marche</button>
+        <button class="menu-item" data-public-nav="publicSecurity">Sécurité</button>
+      </nav>
+
+      <nav id="privateNav" class="main-menu private-nav hidden">
+        <button class="menu-item active" data-private-nav="radar">Dashboard</button>
+        <button class="menu-item" data-private-nav="positions">Positions</button>
+        <button class="menu-item" data-private-nav="universe">Top 300</button>
+        <button class="menu-item" data-private-nav="history">Historique</button>
+      </nav>
+
+      <div class="top-actions">
+        <div class="switcher">
+          <button data-lang="fr" class="active">FR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <div class="switcher private-only hidden">
+          <button data-unit="usdc" class="active">USDC</button>
+          <button data-unit="eur">€ EUR</button>
+          <button data-unit="gold">OR</button>
+        </div>
+        <button id="refreshBtn" class="icon-btn private-only hidden" title="Actualiser">↻</button>
+        <button id="personalSpaceBtn" class="btn btn-primary small-btn">Espace personnel</button>
+        <button id="logoutBtn" class="btn btn-dark small-btn private-only hidden">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="publicHome" class="public-home">
+      <div class="public-shell">
+        <section class="public-hero">
+          <div class="public-copy">
+            <div class="eyebrow">AI ASSISTED CRYPTO TRADING</div>
+            <h1><span class="gold-text">EBYTDA</span><br>Trading Intelligence</h1>
+            <p>Un environnement privé pour analyser le marché crypto, croiser les signaux techniques, quantitatifs, fondamentaux et de régime, puis transformer cette lecture en un plan d’action manuel clair.</p>
+            <div class="public-actions">
+              <button id="heroPersonalBtn" class="btn btn-primary big-btn">ESPACE PERSONNEL →</button>
+              <button id="learnMoreBtn" class="btn btn-secondary big-btn">COMMENT ÇA MARCHE</button>
+            </div>
+            <div class="public-trust">
+              <span>300 cryptos analysées</span><span>Top 3 FOMO</span><span>Top 10 éligible</span><span>AutoPilot + ordres manuels</span><span>P&amp;L suivi</span>
+            </div>
+          </div>
+          <div class="public-visual">
+            <div class="brand-frame"><img src="assets/brand-showcase.png" alt="EBYTDA Trading Intelligence"></div>
+          </div>
+        </section>
+
+        <section id="howItWorks" class="public-section">
+          <div class="section-center">
+            <div class="eyebrow">COMMENT ÇA MARCHE</div>
+            <h2>De 300 cryptos à une décision lisible</h2>
+            <p>La Home explique le parcours. L’analyse réelle et les ordres restent dans l’Espace personnel.</p>
+          </div>
+          <div class="how-grid">
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
+              <b>1. Univers Top 300</b><p>Le moteur scanne les 300 premières cryptos et compare momentum, liquidité, tendance et contexte.</p>
+            </article>
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><path d="M4 18V9m5 9V5m5 13v-7m5 7V3"/><path d="m4 13 5-4 5 3 5-6"/></svg></div>
+              <b>2. Algo technique</b><p>Le score TECH regroupe momentum, tendance, volume, volatilité et stabilité du signal.</p>
+            </article>
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><path d="M7 3h10v4H7zM5 9h14v12H5z"/><path d="M8 13h8M8 17h5"/></svg></div>
+              <b>3. Quant + fondamental</b><p>Le moteur Quant consolide les données statistiques, tandis que la couche fondamentale mesure qualité, liquidité et robustesse.</p>
+            </article>
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><path d="M4 16c3-8 6-8 8 0s5 8 8 0"/><path d="M4 8h16"/></svg></div>
+              <b>4. Régime de marché</b><p>Risk-on, risk-off, range, rotation altcoins ou forte volatilité : le contexte module chaque signal.</p>
+            </article>
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><path d="m13 2-8 11h6l-1 9 9-12h-6z"/></svg></div>
+              <b>5. FOMO IA Top 3</b><p>La fusion IA classe les trois meilleures asymétries et identifie le choix premium du moment.</p>
+            </article>
+            <article class="how-card">
+              <div class="picto"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M10 5h9v9"/><path d="M5 5v14h14"/></svg></div>
+              <b>6. Ordre &amp; suivi</b><p>L’AutoPilot peut simuler l’ouverture depuis le Top 3 ; le mode manuel reste disponible. EBYTDA conserve ensuite la position et suit sa performance.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="public-section public-process">
+          <div class="section-center">
+            <div class="eyebrow">MOTEURS DE DÉCISION</div>
+            <h2>Une décision issue de plusieurs avis, pas d’un seul indicateur</h2>
+          </div>
+          <div class="static-pipeline">
+            <div><span>ALGO</span><b>TECH</b><small>Momentum • tendance • volume</small></div><i>→</i>
+            <div><span>STATISTIQUE</span><b>QUANT</b><small>Robustesse • stabilité • flux</small></div><i>→</i>
+            <div><span>RECHERCHE</span><b>FONDAMENTAL</b><small>Qualité • liquidité • risque</small></div><i>→</i>
+            <div><span>CONTEXTE</span><b>RÉGIME</b><small>Risk-on • range • risk-off</small></div><i>→</i>
+            <div class="final"><span>FUSION</span><b>FOMO IA</b><small>Top 3 + choix premium</small></div>
+          </div>
+        </section>
+
+        <section id="publicSecurity" class="public-section security-public">
+          <div class="security-copy">
+            <div class="eyebrow">ESPACE PERSONNEL</div>
+            <h2>Les fonctions de trading restent derrière le portail</h2>
+            <p>La page d’accueil ne lance aucun ordre et n’expose aucune position. L’Espace personnel contient le dashboard, les scores, les Top 3/Top 10, l’AutoPilot simulé, les tickets d’ordre manuels, le suivi des positions et les alertes de fenêtre de sortie.</p>
+            <button id="securityPersonalBtn" class="btn btn-primary">ACCÉDER À MON ESPACE</button>
+          </div>
+          <div class="security-cards">
+            <article><b>Portail admin</b><span>Connexion nécessaire avant d’ouvrir un ticket d’ordre.</span></article>
+            <article><b>AutoPilot simulé</b><span>Le mode automatique de cette version est un moteur de simulation ; aucun ordre réel n’est envoyé au broker.</span></article>
+            <article><b>Positions persistantes</b><span>Les positions restent enregistrées dans le dashboard local.</span></article>
+            <article><b>Fenêtre de sortie</b><span>Alerte visuelle et notification navigateur lorsque l’horizon arrive.</span></article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="privateApp" class="private-app hidden">
+      <div class="app-shell">
+        <section id="radar" class="page-section">
+          <div class="intro">
+            <div>
+              <div class="eyebrow">EBYTDA • AI MARKET COMMAND CENTER</div>
+              <h1>Trading Intelligence <span class="gold">Dashboard</span></h1>
+              <p>300 plus grosses capitalisations • scan IA toutes les 15 min • LONG + SHORT • positions conservées jusqu’à 5 jours • 10 positions max</p>
+            </div>
+            <div class="live-group">
+              <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
+              <span class="badge gold-badge">⏱ <span id="countdown">—</span></span>
+            </div>
+          </div>
+
+          <div class="kpis kpis-v5">
+            <article class="kpi credit-kpi"><div class="kpi-label">CRÉDITS DISPONIBLES</div><div id="creditBalance" class="kpi-value gold">10 000</div><div id="creditUsed" class="kpi-sub">0 utilisé</div></article>
+            <article class="kpi"><div class="kpi-label">ACTIFS SCANNÉS</div><div class="kpi-value">300</div><div class="kpi-sub">2 pages CoinGecko • Top market cap</div></article>
+            <article class="kpi"><div class="kpi-label">CAPITAL TOTAL NET</div><div id="capitalTotal" class="kpi-value">3 000 USDC</div><div id="capitalTotalSub" class="kpi-sub">Base + P&amp;L net estimé</div></article>
+            <article class="kpi"><div class="kpi-label">CAPITAL DISPONIBLE</div><div id="capitalFree" class="kpi-value">3 000 USDC</div><div id="capitalFreeSub" class="kpi-sub">Après marge réservée</div></article>
+            <article class="kpi"><div class="kpi-label">MARGE ENGAGÉE</div><div id="marginUsed" class="kpi-value">0 USDC</div><div class="kpi-sub">100 USDC par ordre</div></article>
+            <article class="kpi"><div class="kpi-label">POSITIONS OUVERTES</div><div id="kpiOpen" class="kpi-value">0 / 10</div><div id="kpiCapital" class="kpi-sub">—</div></article>
+            <article class="kpi"><div class="kpi-label">P&amp;L CUMULÉ</div><div id="kpiPnl" class="kpi-value">—</div><div id="kpiPnlPct" class="kpi-sub">réalisé + latent • frais inclus</div></article>
+            <article class="kpi"><div class="kpi-label">P&amp;L RÉALISÉ</div><div id="realizedPnl" class="kpi-value">0 USDC</div><div id="realizedPnlSub" class="kpi-sub">positions clôturées + TP1 partiels</div></article>
+            <article class="kpi"><div class="kpi-label">P&amp;L LATENT</div><div id="unrealizedPnl" class="kpi-value">0 USDC</div><div id="unrealizedPnlSub" class="kpi-sub">mark-to-market des positions ouvertes</div></article>
+            <article class="kpi"><div class="kpi-label">PROCHAIN SCAN</div><div id="scanKpi" class="kpi-value compact-value">15:00</div><div id="kpiSync" class="kpi-sub">Synchronisation 15 min</div></article>
+            <article class="kpi notify-kpi"><div class="kpi-label">ALERTES AUTO</div><div id="notifyState" class="kpi-value compact-value">OFF</div><button id="notifyBtn" class="mini-action">Activer notifications</button></article>
+          </div>
+
+          <section class="panel pad autopilot-panel">
+            <div class="panel-head">
+              <div><div class="eyebrow">AUTO PILOT • SIMULATION</div><h2>Moteur automatique sur 300 cryptos</h2><p>À chaque scan de 15 min, les 300 plus grosses capitalisations sont réévaluées. Les 3 meilleurs consensus directionnels LONG/SHORT reçoivent une décision, mais une position déjà ouverte reste suivie jusqu’à son TP, son stop volatilité, une invalidation forte ou son horizon IA — avec prolongation possible jusqu’à 5 jours.</p></div>
+              <label class="auto-switch"><input id="autoPilotToggle" type="checkbox" checked><span></span><b id="autoPilotLabel">AUTO ON</b></label>
+            </div>
+            <div class="auto-stats">
+              <article><span>Marge / ordre</span><b>100 USDC</b></article>
+              <article><span>Positions max</span><b>10</b></article>
+              <article><span>Levier IA</span><b>1× → 5×</b></article>
+              <article><span>Frais proxy A/R</span><b id="feeProxy">0,8733 %</b></article>
+              <article><span>Base compte</span><b>3 000 USDC</b></article><article><span>Horizon IA</span><b>6 h → 5 j</b></article><article><span>Réentrée même actif</span><b>cooldown 6 h</b></article>
+            </div>
+            <p class="auto-disclaimer">Le mode AUTO de cette V6 est un <b>paper-trading/simulateur</b>. Aucun ordre réel n’est envoyé à Bitget, XTB ou eToro. Frais A/R simulés via une moyenne configurable des 3 brokers ; spread, funding/swap et frais réels peuvent différer. La conversion OR utilise PAXG comme proxy d’une once troy. La connexion réelle nécessitera un backend sécurisé et les API officielles du broker.</p>
+          </section>
+
+          <section class="panel pad premium-choice">
+            <div class="panel-head">
+              <div><div class="eyebrow">CHOIX PREMIUM IA</div><h2>Meilleure synthèse parmi les 300 cryptos</h2><p>Le choix premium est recalculé sur 300 actifs. L’AutoPilot applique ensuite le Risk Engine avant toute ouverture simulée.</p></div>
+              <div class="premium-rank">#1</div>
+            </div>
+            <div class="hero-choice">
+              <div class="hero-coin"><img id="heroImg" src="" alt=""><div><div id="heroName" class="hero-name">Chargement…</div><div class="hero-price-line"><strong id="heroPrice">—</strong><span id="hero24h">—</span></div></div></div>
+              <div class="hero-score"><span>Score IA</span><b id="heroScore">—</b><small id="heroSignal">—</small></div>
+            </div>
+            <p id="heroReason" class="hero-reason">—</p>
+          </section>
+
+          <section class="panel pad engine-panel">
+            <div class="panel-head"><div><div class="eyebrow">MOTEURS DE SCORING</div><h2>Du signal brut au FOMO IA</h2><p>Chaque score est visible séparément avant la fusion finale.</p></div></div>
+            <div class="engine-flow">
+              <article><span>ALGO TECHNIQUE</span><b id="engineTech">—</b><small>Momentum • tendance • volume • volatilité</small></article><i>→</i>
+              <article><span>MOTEUR QUANT</span><b id="engineQuant">—</b><small>Robustesse statistique • stabilité • flux</small></article><i>→</i>
+              <article><span>FONDAMENTAL</span><b id="engineFund">—</b><small>Qualité • liquidité • drawdown • capitalisation</small></article><i>→</i>
+              <article><span>RÉGIME</span><b id="engineRegime">—</b><small>Risk-on • risk-off • range • rotation</small></article><i>→</i>
+              <article class="engine-final"><span>FOMO IA</span><b id="engineFomo">—</b><small>Fusion + priorité d’action</small></article>
+            </div>
+          </section>
+
+          <section class="panel pad">
+            <div class="panel-head">
+              <div><div class="eyebrow">FOMO IA</div><h2>Top 3 — consensus IA LONG / SHORT</h2><p>Le moteur compare les scénarios LONG et SHORT sur les 300 actifs. Une position déjà ouverte n’est jamais recréée à chaque scan.</p></div>
+              <div class="legend"><span><i class="lg green"></i>Passage conseillé</span><span><i class="lg amber"></i>Pré-ordre</span><span><i class="lg blue"></i>À surveiller</span></div>
+            </div>
+            <div id="top3" class="top3"></div>
+          </section>
+
+          <section class="panel pad crypto-map-panel">
+            <div class="panel-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Les 300 cryptos matérialisées</h2><p>Chaque tuile représente un actif. Cliquez dessus pour charger son graphique et ses scores.</p></div><div class="universe-legend"><span class="u-hot">IA ≥ 80</span><span class="u-mid">IA 65–79</span><span class="u-low">IA &lt; 65</span></div></div>
+            <div id="cryptoGrid100" class="crypto-grid100"></div>
+          </section>
+
+          <div class="grid">
+            <section class="panel chart-card">
+              <div class="chart-top"><div class="coin-title"><img id="chartImg" src="" alt=""><div><div id="chartName" class="coin-name">—</div><div id="chartSymbol" class="coin-symbol">—</div></div></div><div><div id="chartPrice" class="price">—</div><div id="chartChange" class="price-change">—</div></div></div>
+              <div class="chart-toolbar"><div class="tf-tabs"><button class="tf-btn active" data-days="1">24H</button><button class="tf-btn" data-days="7">7J</button><button class="tf-btn" data-days="30">30J</button><button class="tf-btn" data-days="90">90J</button></div><div id="chartEligibility" class="eligibility">—</div></div>
+              <div id="chart"></div>
+              <div class="chart-foot"><span id="chartStatus">Bougies OHLC • CoinGecko</span><span class="countdown" id="chartRank">—</span></div>
+
+              <div class="track-record">
+                <div class="panel-head small-head"><div><div class="eyebrow">TRACK RECORD 90 JOURS</div><h3>Lecture comportementale de l’actif sélectionné</h3></div><span class="mini-chip">90J</span></div>
+                <div class="track-grid"><div><span>Perf. 90J</span><b id="trkPerf">—</b></div><div><span>Jours positifs</span><b id="trkPos">—</b></div><div><span>Volatilité</span><b id="trkVol">—</b></div><div><span>Max drawdown</span><b id="trkDD">—</b></div><div><span>Continuation</span><b id="trkCont">—</b></div><div><span>Score final</span><b id="trkScore">—</b></div></div>
+              </div>
+            </section>
+
+            <aside class="right-stack">
+              <section class="panel pad ai-panel">
+                <div class="panel-head"><div><div class="ai-headline"><span class="ai-orb"></span><h2>Plan d’action IA</h2></div><p id="selectedStatus">—</p></div><div id="selectedScore" class="match-score">—</div></div>
+                <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>FOMO</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>LEVIER IA</span><b id="selLeverage">—</b></div></div>
+                <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Stop / invalidation</span><b id="stopLevel">—</b></div><div class="ai-level"><span>TP1</span><b id="tp1Level">—</b></div><div class="ai-level"><span>TP2</span><b id="tp2Level">—</b></div></div>
+                <div id="selectedReason" class="ai-summary">—</div>
+                <div class="gain-grid"><div><span>Prudent</span><b id="gain1">—</b></div><div><span>Central</span><b id="gain2">—</b></div><div><span>Favorable</span><b id="gain3">—</b></div></div>
+                <button id="openOrderBtn" class="btn btn-ai" disabled>PRÉPARER UN ORDRE MANUEL</button><div id="orderEligibilityNote" class="ai-warning">—</div>
+              </section>
+
+              <section class="panel pad broker-links">
+                <div class="eyebrow">BROKERS</div><div class="broker-grid"><a href="https://www.bitget.com/" target="_blank" rel="noopener">Bitget ↗</a><a href="https://www.xtb.com/" target="_blank" rel="noopener">XTB ↗</a><a href="https://www.etoro.com/" target="_blank" rel="noopener">eToro ↗</a></div><p>Après l’exécution chez le broker, saisissez le prix réellement obtenu. La position reste ensuite ouverte dans EBYTDA jusqu’à votre clôture.</p>
+              </section>
+            </aside>
+          </div>
+
+          <section class="panel pad top10-panel">
+            <div class="panel-head"><div><div class="eyebrow">QUANTUM ALGORITHM</div><h2>TOP 10 ALGO — univers manuel autorisé</h2><p>Le TOP 10 reste accessible au mode manuel. L’AutoPilot automatique travaille prioritairement sur les 3 meilleurs FOMO.</p></div></div>
+            <div class="table-shell"><table class="top10-table"><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>24 h</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>IA</th><th>Direction</th><th>Signal</th><th>Action</th></tr></thead><tbody id="top10Rows"></tbody></table></div>
+          </section>
+        </section>
+
+        <section id="positions" class="page-section panel pad">
+          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK</div><h2>Positions ouvertes — performance &amp; horizon</h2><p>Les positions sont persistantes : elles restent ouvertes entre les scans et entre les rechargements. EBYTDA cumule P&L réalisé + latent, frais, MFE/MAE, TP1/TP2, stop volatilité et horizon IA avec prolongation éventuelle jusqu’à 5 jours.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
+          <div id="positionsList" class="positions-list"></div>
+        </section>
+
+        <section id="universe" class="page-section panel pad">
+          <div class="panel-head universe-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Listing complet des 300 cryptos</h2><p>Consultation et graphique libres. Ticket d’ordre bloqué si l’actif sort du TOP 10.</p></div><div class="toolbar universe-tools"><input id="search" class="control" type="search" placeholder="BTC, ETH, SOL…"><select id="statusFilter" class="control"><option value="all">Tous</option><option value="order">Ordre conseillé</option><option value="preorder">Pré-ordre</option><option value="watch">À surveiller</option><option value="neutral">Neutre</option></select></div></div>
+          <div class="table-shell universe-table-shell"><table><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th>Volume</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>IA</th><th>Direction</th><th>Signal</th></tr></thead><tbody id="cryptoRows"></tbody></table></div>
+        </section>
+
+        <section id="history" class="page-section panel pad">
+          <div class="panel-head"><div><div class="eyebrow">AUTO PILOT JOURNAL</div><h2>Historique des décisions FOMO — Top 3 toutes les 15 min</h2><p>Chaque scan conserve les trois décisions IA, le Risk Score et le levier proposé.</p></div></div>
+          <div id="decisionList" class="decision-list"></div>
+          <div class="history-separator"></div>
+          <div class="panel-head"><div><div class="eyebrow">TRACK RECORD LOCAL</div><h2>Historique des positions clôturées</h2><p>P&amp;L brut, frais proxy et résultat net sont cumulés dans le capital dynamique.</p></div><span class="history-protected">CUMUL PERMANENT</span></div>
+          <div id="closedList"></div>
+        </section>
+
+        <footer><span>EBYTDA Crypto IA V6 • SwingDay AutoPilot 300 • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
+      </div>
+    </section>
+  </main>
+
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-auth></div>
+    <section class="modal-card auth-card">
+      <div class="modal-head"><div><div class="eyebrow">ESPACE PERSONNEL</div><h2>Connexion administrateur</h2></div><button class="modal-close" data-close-auth>×</button></div>
+      <div class="auth-brand-box"><img src="assets/ebyt-da-logo.png" alt="EBYTDA"><p>Accès au dashboard, au Top 300, aux tickets d’ordre, aux positions ouvertes et aux alertes de sortie.</p></div>
+      <div class="order-form"><label><span>Email admin</span><input id="adminEmail" class="control" type="email" value="admin@ebytda.local"></label><label><span>Code portail</span><input id="adminPass" class="control" type="password" placeholder="••••••••"></label></div>
+      <button id="loginBtn" class="btn btn-ai modal-main-btn">ACCÉDER À MON ESPACE</button>
+      <p class="fineprint">Sécurité front-end de démonstration. Pour la production, connecter une authentification serveur.</p>
+    </section>
+  </div>
+
+  <div id="orderModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-order></div>
+    <section class="modal-card">
+      <div class="modal-head"><div><div class="eyebrow">OUVERTURE DE POSITION</div><h2 id="modalAsset">—</h2></div><button class="modal-close" data-close-order>×</button></div>
+      <div class="modal-lock"><span>Éligibilité</span><b id="modalRank">TOP 10</b></div>
+      <div class="order-form">
+        <label><span>Broker utilisé</span><select id="brokerSelect" class="control"><option value="Bitget">Bitget</option><option value="XTB">XTB</option><option value="eToro">eToro</option></select></label>
+        <label><span>Sens</span><select id="sideSelect" class="control"><option value="long">LONG / Achat</option><option value="short">SHORT / Vente</option></select></label>
+        <label><span>Marge engagée</span><div class="input-suffix"><input id="capitalInput" class="control" type="number" value="100" readonly><b>USDC</b></div></label>
+        <label><span>Prix exécuté / simulé</span><div class="input-suffix"><input id="executionInput" class="control" type="number" min="0" step="any"><b>USDC</b></div></label>
+        <label><span>Levier IA</span><div class="input-suffix"><input id="leverageInput" class="control" type="number" value="1" readonly><b>×</b></div></label>
+        <label class="full-field"><span>Horizon de fermeture</span><select id="horizonSelect" class="control"><option value="auto">Horizon IA automatique</option><option value="60">1 heure</option><option value="240">4 heures</option><option value="720">12 heures</option><option value="1440">24 heures</option><option value="2880">48 heures</option><option value="10080">7 jours</option></select></label>
+      </div>
+      <div class="ticket-summary"><div><span>Score IA</span><b id="ticketAi">—</b></div><div><span>FOMO</span><b id="ticketFomo">—</b></div><div><span>Stop</span><b id="ticketStop">—</b></div><div><span>TP1 / TP2</span><b id="ticketTps">—</b></div><div><span>Horizon IA</span><b id="ticketHorizon">—</b></div><div><span>Frais A/R estimés</span><b id="ticketFees">—</b></div></div>
+      <div class="manual-confirm"><input id="manualCheck" type="checkbox"><label for="manualCheck">Je confirme l’ouverture manuelle de cette position dans le simulateur EBYTDA.</label></div>
+      <button id="confirmOrderBtn" class="btn btn-ai" disabled>CONFIRMER L’EXÉCUTION ET OUVRIR LA POSITION</button>
+      <p class="fineprint">Cette V6 reste un simulateur. Aucun ordre réel n’est envoyé au broker. Les frais sont estimés via le proxy moyen configuré.</p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
