@@ -141,7 +141,7 @@
             <div>
               <div class="eyebrow">EBYTDA • AI MARKET COMMAND CENTER</div>
               <h1>Trading Intelligence <span class="gold">Dashboard</span></h1>
-              <p>300 plus grosses capitalisations • scan IA toutes les 15 min • LONG + SHORT • positions conservées jusqu’à 5 jours • 10 positions max</p>
+              <p>300 plus grosses capitalisations • scan IA toutes les 15 min • LONG + SHORT • positions conservées jusqu’à 5 jours • 3 à 15 positions • 100 USDT sans levier</p>
             </div>
             <div class="live-group">
               <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
@@ -157,7 +157,7 @@
             <article class="kpi"><div class="kpi-label">MARGE ENGAGÉE</div><div id="marginUsed" class="kpi-value">0 USDT</div><div class="kpi-sub">100 USDT bloqués par ordre</div></article>
             <article class="kpi"><div class="kpi-label">POSITIONS OUVERTES</div><div id="kpiOpen" class="kpi-value">0 / 10</div><div id="kpiCapital" class="kpi-sub">—</div></article>
             <article class="kpi"><div class="kpi-label">P&amp;L CUMULÉ</div><div id="kpiPnl" class="kpi-value">—</div><div id="kpiPnlPct" class="kpi-sub">réalisé + latent • frais inclus</div></article>
-            <article class="kpi"><div class="kpi-label">P&amp;L RÉALISÉ</div><div id="realizedPnl" class="kpi-value">0 USDT</div><div id="realizedPnlSub" class="kpi-sub">positions clôturées + TP1 partiels</div></article>
+            <article class="kpi"><div class="kpi-label">P&amp;L RÉALISÉ</div><div id="realizedPnl" class="kpi-value">0 USDT</div><div id="realizedPnlSub" class="kpi-sub">positions clôturées • net après frais</div></article>
             <article class="kpi"><div class="kpi-label">P&amp;L LATENT</div><div id="unrealizedPnl" class="kpi-value">0 USDT</div><div id="unrealizedPnlSub" class="kpi-sub">mark-to-market des positions ouvertes</div></article>
             <article class="kpi"><div class="kpi-label">PROCHAIN SCAN</div><div id="scanKpi" class="kpi-value compact-value">15:00</div><div id="kpiSync" class="kpi-sub">Synchronisation 15 min</div></article>
             <article class="kpi notify-kpi"><div class="kpi-label">ALERTES AUTO</div><div id="notifyState" class="kpi-value compact-value">OFF</div><button id="notifyBtn" class="mini-action">Activer notifications</button></article>
@@ -171,7 +171,7 @@
             <div class="auto-stats">
               <article><span>Marge / ordre</span><b>100 USDT</b></article>
               <article><span>Positions max</span><b>10</b></article>
-              <article><span>Levier IA</span><b>1× → 2× MAX</b></article>
+              <article><span>Exposition</span><b>100 USDT • SANS LEVIER</b></article>
               <article><span>Frais proxy A/R</span><b id="feeProxy">0,8733 %</b></article>
               <article><span>Base compte</span><b>3 000 USDT</b></article><article><span>Horizon IA</span><b>6 h → 5 j</b></article><article><span>Réentrée même actif</span><b>cooldown 6 h</b></article>
             </div>
@@ -230,10 +230,10 @@
             <aside class="right-stack">
               <section class="panel pad ai-panel">
                 <div class="panel-head"><div><div class="ai-headline"><span class="ai-orb"></span><h2>Plan d’action IA</h2></div><p id="selectedStatus">—</p></div><div id="selectedScore" class="match-score">—</div></div>
-                <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>FOMO</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>LEVIER IA</span><b id="selLeverage">—</b></div></div>
-                <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Stop / invalidation</span><b id="stopLevel">—</b></div><div class="ai-level"><span>TP1</span><b id="tp1Level">—</b></div><div class="ai-level"><span>TP2</span><b id="tp2Level">—</b></div></div>
+                <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>FOMO</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>EXPOSITION</span><b id="selLeverage">100 USDT</b></div></div>
+                <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Sortie défensive</span><b id="stopLevel">IA dynamique</b></div><div class="ai-level"><span>Prise de gain</span><b id="tp1Level">IA dynamique</b></div><div class="ai-level"><span>Horizon maximum</span><b id="tp2Level">5 jours</b></div></div>
                 <div id="selectedReason" class="ai-summary">—</div>
-                <div class="gain-grid"><div><span>Prudent</span><b id="gain1">—</b></div><div><span>Central</span><b id="gain2">—</b></div><div><span>Favorable</span><b id="gain3">—</b></div></div>
+                <div class="gain-grid"><div><span>Momentum</span><b id="gain1">—</b></div><div><span>Continuation</span><b id="gain2">—</b></div><div><span>Sortie IA</span><b id="gain3">DYNAMIQUE</b></div></div>
                 <button id="openOrderBtn" class="btn btn-ai" disabled>PRÉPARER UN ORDRE MANUEL</button><div id="orderEligibilityNote" class="ai-warning">—</div>
               </section>
 
@@ -250,7 +250,7 @@
         </section>
 
         <section id="positions" class="page-section panel pad">
-          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — jusqu’à 10 simultanées</h2><p>Toutes les 15 min, AutoPilot ouvre au minimum le meilleur candidat disponible si les sécurités du moteur sont validées. Il peut ensuite ajouter des positions supplémentaires à fort consensus, jusqu’à 10 simultanées. Chaque position reste ouverte jusqu’au stop, TP2, invalidation forte ou horizon IA.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
+          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — 3 minimum / 15 maximum</h2><p>Toutes les 15 min, AutoPilot maintient au moins 3 positions et peut monter jusqu’à 15 si le consensus est assez fort. Aucun stop-loss fixe ni take-profit fixe : l’IA suit le momentum, la continuation, le P&L et l’horizon et décide seule du closing.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
           <div class="auto-mechanism-strip">
             <span><b>300</b><small>capitalisations scannées</small></span>
             <span><b>15 min</b><small>cycle IA</small></span>
@@ -277,7 +277,7 @@
           <div id="closedList" class="closed-cards"></div>
         </section>
 
-        <footer><span>EBYTDA Crypto IA V12 • x2 Max • Stop volatilité élargi • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
+        <footer><span>EBYTDA Crypto IA V14 • AI Managed • 3–15 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
       </div>
     </section>
   </main>
@@ -303,13 +303,13 @@
         <label><span>Sens</span><select id="sideSelect" class="control"><option value="long">LONG / Achat</option><option value="short">SHORT / Vente</option></select></label>
         <label><span>Marge engagée</span><div class="input-suffix"><input id="capitalInput" class="control" type="number" value="100" readonly><b>USDT</b></div></label>
         <label><span>Prix exécuté / simulé</span><div class="input-suffix"><input id="executionInput" class="control" type="number" min="0" step="any"><b>USDT</b></div></label>
-        <label><span>Levier IA</span><div class="input-suffix"><input id="leverageInput" class="control" type="number" value="1" readonly><b>×</b></div></label>
+        
         <label class="full-field"><span>Horizon de fermeture</span><select id="horizonSelect" class="control"><option value="auto">Horizon IA automatique</option><option value="60">1 heure</option><option value="240">4 heures</option><option value="720">12 heures</option><option value="1440">24 heures</option><option value="2880">48 heures</option><option value="10080">7 jours</option></select></label>
       </div>
-      <div class="ticket-summary"><div><span>Score IA</span><b id="ticketAi">—</b></div><div><span>FOMO</span><b id="ticketFomo">—</b></div><div><span>Stop</span><b id="ticketStop">—</b></div><div><span>TP1 / TP2</span><b id="ticketTps">—</b></div><div><span>Horizon IA</span><b id="ticketHorizon">—</b></div><div><span>Frais A/R estimés</span><b id="ticketFees">—</b></div></div>
+      <div class="ticket-summary"><div><span>Score IA</span><b id="ticketAi">—</b></div><div><span>FOMO</span><b id="ticketFomo">—</b></div><div><span>Risk</span><b id="ticketStop">—</b></div><div><span>Closing</span><b id="ticketTps">IA dynamique</b></div><div><span>Horizon IA</span><b id="ticketHorizon">—</b></div><div><span>Frais A/R estimés</span><b id="ticketFees">—</b></div></div>
       <div class="manual-confirm"><input id="manualCheck" type="checkbox"><label for="manualCheck">Je confirme l’ouverture manuelle de cette position dans le simulateur EBYTDA.</label></div>
       <button id="confirmOrderBtn" class="btn btn-ai" disabled>CONFIRMER L’EXÉCUTION ET OUVRIR LA POSITION</button>
-      <p class="fineprint">Cette V6 reste un simulateur. Aucun ordre réel n’est envoyé au broker. Les frais sont estimés via le proxy moyen configuré.</p>
+      <p class="fineprint">Simulation uniquement. Aucun ordre réel n’est envoyé au broker. Pas de levier, pas de stop-loss fixe, pas de take-profit fixe : le moteur IA décide du closing selon momentum, consensus, P&L et horizon.</p>
     </section>
   </div>
 
