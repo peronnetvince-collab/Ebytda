@@ -4,12 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#05080d">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>EBYTDA — Crypto IA V6 SwingDay 300</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=15.2">
 </head>
 <body>
   <div id="toast" class="toast"></div>
@@ -155,7 +158,7 @@
             <article class="kpi"><div class="kpi-label">CAPITAL TOTAL NET</div><div id="capitalTotal" class="kpi-value">3 000 USDT</div><div id="capitalTotalSub" class="kpi-sub">Base + P&amp;L net estimé</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL DISPONIBLE</div><div id="capitalFree" class="kpi-value">3 000 USDT</div><div id="capitalFreeSub" class="kpi-sub">Après marge réservée</div></article>
             <article class="kpi"><div class="kpi-label">MARGE ENGAGÉE</div><div id="marginUsed" class="kpi-value">0 USDT</div><div class="kpi-sub">100 USDT bloqués par ordre</div></article>
-            <article class="kpi"><div class="kpi-label">POSITIONS OUVERTES</div><div id="kpiOpen" class="kpi-value">0 / 10</div><div id="kpiCapital" class="kpi-sub">—</div></article>
+            <article class="kpi"><div class="kpi-label">POSITIONS OUVERTES</div><div id="kpiOpen" class="kpi-value">0 / 15</div><div id="kpiCapital" class="kpi-sub">—</div></article>
             <article class="kpi"><div class="kpi-label">P&amp;L CUMULÉ</div><div id="kpiPnl" class="kpi-value">—</div><div id="kpiPnlPct" class="kpi-sub">réalisé + latent • frais inclus</div></article>
             <article class="kpi"><div class="kpi-label">P&amp;L RÉALISÉ</div><div id="realizedPnl" class="kpi-value">0 USDT</div><div id="realizedPnlSub" class="kpi-sub">positions clôturées • net après frais</div></article>
             <article class="kpi"><div class="kpi-label">P&amp;L LATENT</div><div id="unrealizedPnl" class="kpi-value">0 USDT</div><div id="unrealizedPnlSub" class="kpi-sub">mark-to-market des positions ouvertes</div></article>
@@ -165,17 +168,17 @@
 
           <section class="panel pad autopilot-panel">
             <div class="panel-head">
-              <div><div class="eyebrow">AUTO PILOT • SIMULATION</div><h2>Moteur automatique sur 300 cryptos • Profil DYNAMIC+</h2><p>À chaque scan de 15 min, les 300 plus grosses capitalisations sont réévaluées. Le meilleur candidat disponible devient l’ordre minimum du cycle si les sécurités sont validées ; les signaux supplémentaires à fort consensus peuvent ensuite être ouverts jusqu’à 10 positions simultanées. Une position déjà ouverte reste suivie jusqu’à son TP, son stop volatilité, une invalidation forte ou son horizon IA — avec prolongation possible jusqu’à 5 jours.</p></div>
+              <div><div class="eyebrow">AUTO PILOT • SIMULATION</div><h2>Moteur automatique sur 300 cryptos • AI MANAGED</h2><p>À chaque scan de 15 min, les 300 plus grosses capitalisations sont réévaluées. Le moteur maintient un noyau d’au moins 3 positions lorsque des candidats valides existent et peut monter jusqu’à 15 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
               <label class="auto-switch"><input id="autoPilotToggle" type="checkbox" checked><span></span><b id="autoPilotLabel">AUTO ON</b></label>
             </div>
             <div class="auto-stats">
               <article><span>Marge / ordre</span><b>100 USDT</b></article>
-              <article><span>Positions max</span><b>10</b></article>
+              <article><span>Positions max</span><b>15</b></article>
               <article><span>Exposition</span><b>100 USDT • SANS LEVIER</b></article>
               <article><span>Frais proxy A/R</span><b id="feeProxy">0,8733 %</b></article>
               <article><span>Base compte</span><b>3 000 USDT</b></article><article><span>Horizon IA</span><b>6 h → 5 j</b></article><article><span>Réentrée même actif</span><b>cooldown 6 h</b></article>
             </div>
-            <p class="auto-disclaimer">Le mode AUTO de cette V6 est un <b>paper-trading/simulateur</b>. Aucun ordre réel n’est envoyé à Bitget, XTB ou eToro. Frais A/R simulés via une moyenne configurable des 3 brokers ; spread, funding/swap et frais réels peuvent différer. La conversion OR utilise PAXG comme proxy d’une once troy. La connexion réelle nécessitera un backend sécurisé et les API officielles du broker.</p>
+            <p class="auto-disclaimer">Le mode AUTO de cette V15 est un <b>paper-trading/simulateur</b>. Aucun ordre réel n’est envoyé à Bitget, XTB ou eToro. Frais A/R simulés via une moyenne configurable des 3 brokers ; spread, funding/swap et frais réels peuvent différer. La conversion OR utilise PAXG comme proxy d’une once troy. La connexion réelle nécessitera un backend sécurisé et les API officielles du broker.</p>
           </section>
 
           <section class="panel pad premium-choice">
@@ -313,6 +316,6 @@
     </section>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=15.2"></script>
 </body>
 </html>
