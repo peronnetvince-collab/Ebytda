@@ -1,10 +1,13 @@
-# EBYTDA V26 — DIRECT SYNC
+# EBYTDA V27 — PRICE SYNC FIXED
 
-Correctif prioritaire des HTTP 502.
+Correctif ciblé du HTTP 451 sur les prix de positions.
 
-Le flux principal ne dépend plus de la Function Netlify :
-- CoinPaprika DIRECT navigateur : univers Top 200 par market cap avec ≥ 2 ans (`first_data_at`).
-- Binance DIRECT navigateur : prix rapides toutes les 15 s et bougies multi-timeframe.
-- Netlify `functions/marketdata.js` n'est plus qu'un secours.
-- Cross-check CoinPaprika/Binance avant qu'un actif soit éligible à l'AutoPilot.
-- AutoPilot paper trading : 100 USDT par position, sans levier.
+- Top 200 matures: CoinPaprika direct
+- Prix rapides des positions: OKX public direct
+- Fallback prix: CoinPaprika direct
+- Plus aucune dépendance obligatoire à Binance pour le mark-to-market ni l AutoPilot
+- MTF core: 15m / 30m / 1h / 6h / 12h / 24h / 7j / 30j / 1an depuis CoinPaprika
+- Enrichissement 14j / 200j via bougies OKX quand disponibles
+- 100 USDT par position, sans levier, paper trading automatique
+
+Aucune clé API requise pour ces flux publics.
