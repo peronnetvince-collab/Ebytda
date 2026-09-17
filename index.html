@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20.0.0">
+  <link rel="stylesheet" href="styles.css?v=23.0.0">
 </head>
 <body>
   <div id="toast" class="toast"></div>
@@ -146,15 +146,15 @@
               <p>200 cryptos matures (2 ans+) • analyse multi-timeframe • scan IA toutes les 15 min • LONG + SHORT • 100 USDT sans levier</p>
             </div>
             <div class="live-group">
-              <span class="badge gold-badge">BUILD V22 • DATA PROXY</span>
+              <span class="badge gold-badge">BUILD V23 • MULTI-SOURCE AUTO</span>
               <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
               <span class="badge gold-badge">⏱ <span id="countdown">—</span></span>
             </div>
           </div>
 
           <div class="kpis kpis-v5">
-            <article class="kpi data-kpi"><div class="kpi-label">COINGECKO</div><div id="coinGeckoStatus" class="kpi-value compact-value">INIT</div><div id="coinGeckoSub" class="kpi-sub">Proxy Netlify • marché + prix LIVE</div></article>
-            <article class="kpi data-kpi"><div class="kpi-label">TWELVE DATA</div><div id="twelveStatus" class="kpi-value compact-value">VÉRIFICATION</div><div id="twelveSub" class="kpi-sub">Proxy Netlify • clé côté serveur • jamais exposée</div></article>
+            <article class="kpi data-kpi"><div class="kpi-label">DATA ENGINE</div><div id="coinGeckoStatus" class="kpi-value compact-value">INIT</div><div id="coinGeckoSub" class="kpi-sub">CoinPaprika principal • CoinGecko secours</div></article>
+            <article class="kpi data-kpi"><div class="kpi-label">PRIX POSITIONS</div><div id="twelveStatus" class="kpi-value compact-value">PRÊT</div><div id="twelveSub" class="kpi-sub">Binance public • fallback dernier scan</div></article>
             <article class="kpi"><div class="kpi-label">ACTIFS SCANNÉS</div><div class="kpi-value">200</div><div class="kpi-sub">2 ans+ • market cap • multi-timeframe</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL RÉALISÉ</div><div id="capitalTotal" class="kpi-value">3 000 USDT</div><div id="capitalTotalSub" class="kpi-sub">3 000 + P&amp;L net des positions clôturées uniquement</div></article>
             <article class="kpi"><div class="kpi-label">CAPITAL DISPONIBLE</div><div id="capitalFree" class="kpi-value">3 000 USDT</div><div id="capitalFreeSub" class="kpi-sub">Capital réalisé - capital engagé</div></article>
@@ -169,7 +169,7 @@
 
           <section class="panel pad autopilot-panel">
             <div class="panel-head">
-              <div><div class="eyebrow">AUTO PILOT • AUTO EXECUTE PAPER</div><h2>Moteur automatique sur 200 cryptos matures • MTF AI • AUTO EXECUTE</h2><p>À chaque scan de 15 min, 200 cryptos disposant d’au moins 2 ans de recul sont réévaluées sur 1 h, 24 h, 7 j, 14 j, 30 j, 200 j et 1 an. Dès qu’AutoPilot est ON et que les données LIVE sont disponibles, le moteur exécute automatiquement un noyau pouvant aller jusqu’à 3 positions parmi les meilleurs candidats valides, puis peut compléter progressivement jusqu’à 15 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
+              <div><div class="eyebrow">AUTO PILOT • AUTO EXECUTE PAPER</div><h2>Moteur automatique sur 200 cryptos matures • MTF AI • AUTO EXECUTE</h2><p>À chaque scan de 15 min, 200 cryptos disposant d’au moins 2 ans de recul sont réévaluées sur 15 min, 30 min, 1 h, 6 h, 12 h, 24 h, 7 j, 30 j et 1 an. Dès qu’AutoPilot est ON et que le DATA ENGINE est LIVE, le moteur exécute automatiquement un noyau pouvant aller jusqu’à 3 positions parmi les meilleurs candidats valides, puis peut compléter progressivement jusqu’à 15 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
               <label class="auto-switch"><input id="autoPilotToggle" type="checkbox" checked><span></span><b id="autoPilotLabel">AUTO ON</b></label>
             </div>
             <div class="auto-stats">
@@ -199,7 +199,7 @@
             <div class="engine-flow">
               <article><span>ALGO TECHNIQUE</span><b id="engineTech">—</b><small>Momentum • tendance • volume • volatilité</small></article><i>→</i>
               <article><span>MOTEUR QUANT</span><b id="engineQuant">—</b><small>Robustesse statistique • stabilité • flux</small></article><i>→</i>
-              <article><span>MULTI-TIMEFRAME</span><b id="engineMtf">—</b><small>1 h • 24 h • 7 j • 14 j • 30 j • 200 j • 1 an</small></article><i>→</i>
+              <article><span>MULTI-TIMEFRAME</span><b id="engineMtf">—</b><small>15 min • 30 min • 1 h • 6 h • 12 h • 24 h • 7 j • 30 j • 1 an</small></article><i>→</i>
               <article><span>FONDAMENTAL</span><b id="engineFund">—</b><small>Qualité • liquidité • drawdown • capitalisation</small></article><i>→</i>
               <article><span>RÉGIME</span><b id="engineRegime">—</b><small>Risk-on • risk-off • range • rotation</small></article><i>→</i>
               <article class="engine-final"><span>FOMO IA</span><b id="engineFomo">—</b><small>Fusion + priorité d’action</small></article>
@@ -269,7 +269,7 @@
 
         <section id="universe" class="page-section panel pad">
           <div class="panel-head universe-head"><div><div class="eyebrow">CRYPTO UNIVERSE</div><h2>Listing complet des 200 cryptos matures</h2><p>Consultation et graphique libres. Ticket d’ordre bloqué si l’actif sort du TOP 10.</p></div><div class="toolbar universe-tools"><input id="search" class="control" type="search" placeholder="BTC, ETH, SOL…"><select id="statusFilter" class="control"><option value="all">Tous</option><option value="order">Ordre conseillé</option><option value="preorder">Pré-ordre</option><option value="watch">À surveiller</option><option value="neutral">Neutre</option></select></div></div>
-          <div class="table-shell universe-table-shell"><table><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>1 h</th><th>24 h</th><th>7 j</th><th>30 j</th><th>200 j</th><th>1 an</th><th>Recul</th><th>Volume</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>MTF</th><th>IA</th><th>Direction</th><th>Signal</th></tr></thead><tbody id="cryptoRows"></tbody></table></div>
+          <div class="table-shell universe-table-shell"><table><thead><tr><th>#</th><th>Actif</th><th>Prix</th><th>15 m</th><th>30 m</th><th>1 h</th><th>6 h</th><th>12 h</th><th>24 h</th><th>7 j</th><th>30 j</th><th>1 an</th><th>Recul</th><th>Volume</th><th>Tech.</th><th>Quant</th><th>Fond.</th><th>Régime</th><th>FOMO</th><th>MTF</th><th>IA</th><th>Direction</th><th>Signal</th></tr></thead><tbody id="cryptoRows"></tbody></table></div>
         </section>
 
         <section id="history" class="page-section panel pad">
@@ -282,7 +282,7 @@
           <div id="closedList" class="closed-cards"></div>
         </section>
 
-        <footer><span>EBYTDA Crypto IA V21 • Auto Execute • Mature 200 • Multi-Timeframe • 3–15 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
+        <footer><span>EBYTDA Crypto IA V23 • Multi-Source Auto • Mature 200 • Multi-Timeframe • 3–15 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
       </div>
     </section>
   </main>
@@ -318,6 +318,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=20.0.0"></script>
+  <script src="app.js?v=23.0.0"></script>
 </body>
 </html>
