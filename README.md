@@ -1,22 +1,20 @@
-# EBYTDA Crypto IA V9 — RealSim Cumulative 300
+# EBYTDA Crypto IA V13 — DYNAMIC+
 
-Simulation cumulative de portefeuille sur les 300 plus grosses capitalisations CoinGecko.
+Profil de simulation plus offensif mais contrôlé.
 
-## Logique automatique
-- scan de décision toutes les 15 minutes
-- suivi des prix des positions ouvertes toutes les 60 secondes
-- au minimum le meilleur candidat disponible du cycle est ouvert si les sécurités du moteur sont validées et qu'une place est libre
-- positions additionnelles uniquement sur consensus plus fort
-- maximum 10 positions simultanées
-- 100 USDC de marge par ordre
-- LONG et SHORT
-- levier IA 1x à 5x
-- stop volatilité, TP1, TP2, sortie IA et horizon avec prolongation jusqu'à 5 jours
+## Paramètres
+- Capital initial : 3 000 USDT
+- Marge par trade : 100 USDT
+- Maximum 10 positions simultanées
+- Levier : x1 ou x2, jamais plus
+- Scan complet : 15 minutes
+- Revalorisation positions : 15 secondes
+- Stop volatilité : environ 4,25 % à 12 % sur le prix selon l’actif
+- TP1 : environ 1,18R
+- TP2 : environ 1,95R
+- Seuils d’entrées additionnelles légèrement plus offensifs
+- Maximum 5 nouvelles positions sur un même scan
+- À partir de 7 positions ouvertes, les critères redeviennent plus stricts
+- Blocage des nouvelles entrées si drawdown portefeuille <= -6 %
 
-## Capital cumulatif
-Aucun reset automatique en V9.
-Capital total = 3 000 USDC + P&L réalisé des positions clôturées + P&L latent des positions ouvertes.
-À chaque clôture, la marge est libérée et le gain/perte net nourrit immédiatement le capital disponible.
-
-## Important
-Cette version reste du paper trading. Elle n'envoie aucun ordre réel aux brokers.
+Cette version reste du paper-trading : aucun ordre réel n’est envoyé à un broker.
