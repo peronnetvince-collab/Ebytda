@@ -78,3 +78,27 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:9px 2px;color
 
 /* V6 SwingDay / LONG-SHORT */
 .side-badge{display:inline-flex;align-items:center;justify-content:center;min-width:54px;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:950;letter-spacing:.06em;border:1px solid #263744}.side-badge.long{color:#42e7aa;border-color:rgba(52,211,153,.34);background:rgba(52,211,153,.08)}.side-badge.short{color:#ff8fa3;border-color:rgba(251,113,133,.34);background:rgba(251,113,133,.08)}.history-protected{display:inline-flex;padding:7px 10px;border-radius:999px;border:1px solid rgba(212,173,73,.26);background:rgba(212,173,73,.07);color:var(--gold2);font-size:8px;font-weight:950;letter-spacing:.08em}.extension-chip{color:var(--gold2)!important}.position-window.extended{color:#8bd5ff!important;border-color:rgba(18,151,255,.35)!important;background:rgba(18,151,255,.07)!important}.position-card .strategy-line{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:8px;color:var(--muted2)}.position-card .strategy-line b{color:#d7e2ea}.kpis-v5{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))!important}
+
+
+/* V7 live history */
+.history-summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:6px 0 12px}
+.history-stat{padding:14px;border:1px solid #193144;border-radius:16px;background:linear-gradient(180deg,#0a141d,#08111a)}
+.history-stat span{display:block;color:var(--muted2);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.history-stat b{display:block;margin-top:7px;font-size:22px;font-weight:900}
+.history-stat small{display:block;margin-top:5px;color:#89a0b2;font-size:10px}
+.history-subline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#7e96a7;font-size:10px;margin:4px 0 14px}
+.closed-cards{display:grid;gap:12px}
+.closed-card{padding:14px;border:1px solid #173043;border-radius:18px;background:linear-gradient(180deg,#09131c,#07111a);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.closed-card.win{border-color:rgba(41,211,145,.26)}
+.closed-card.loss{border-color:rgba(248,113,113,.26)}
+.closed-top{display:grid;grid-template-columns:minmax(260px,1.15fr) 1fr auto;gap:12px;align-items:center}
+.closed-asset{display:flex;align-items:center;gap:10px;min-width:0}.closed-asset img{width:40px;height:40px;border-radius:50%;background:#102331}
+.closed-asset b{display:block;font-size:13px}.closed-asset small{display:block;color:#8aa0b2;font-size:10px;margin-top:4px}
+.closed-reason{font-size:10px;color:#aebcca;line-height:1.55}
+.closed-pnl{text-align:right}.closed-pnl .net{display:block;font-size:22px;font-weight:900}.closed-pnl small{display:block;margin-top:4px;color:#8ba1b2;font-size:10px}
+.closed-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+.closed-meta-grid .meta{padding:10px;border:1px solid #152838;border-radius:12px;background:#08121a}.closed-meta-grid span{display:block;color:#7f96a8;font-size:9px;text-transform:uppercase}.closed-meta-grid b{display:block;margin-top:5px;font-size:12px}
+.closed-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid #122432}
+.closed-tags{display:flex;gap:8px;flex-wrap:wrap}.closed-tag{padding:7px 9px;border-radius:999px;border:1px solid #1b3040;background:#09141d;color:#d2dde7;font-size:10px;font-weight:800}.closed-tag.good{border-color:rgba(41,211,145,.26);background:rgba(41,211,145,.08);color:#7ef0c6}.closed-tag.bad{border-color:rgba(248,113,113,.26);background:rgba(248,113,113,.08);color:#f7b4b4}.closed-time{color:#8aa0b2;font-size:10px}
+@media(max-width:1200px){.history-summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.closed-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.closed-top{grid-template-columns:1fr}}
+@media(max-width:760px){.history-summary-grid{grid-template-columns:1fr 1fr}.closed-meta-grid{grid-template-columns:1fr}.closed-pnl{text-align:left}.history-subline{flex-direction:column;align-items:flex-start}}

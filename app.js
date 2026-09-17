@@ -357,6 +357,39 @@ function renderDecisions(){
   const e=$('#decisionList');if(!e)return;if(!state.decisions.length){e.innerHTML='<div class="empty">Aucune décision AutoPilot enregistrée.</div>';return}
   e.innerHTML='<div class="decision-head"><b>Dernières décisions AutoPilot</b><span>Top 3 à chaque scan de 15 min</span></div>'+state.decisions.slice(0,30).map(d=>`<div class="decision-row"><span>${new Date(d.at).toLocaleString()}</span><b>#${d.rank} ${d.name} (${d.symbol.toUpperCase()})</b><span><span class="side-badge ${d.side||'long'}">${(d.side||'long').toUpperCase()}</span> • IA ${score(d.ai)} • FOMO ${score(d.fomo)}</span><span>Risk ${score(d.risk)} • ${d.leverage}× • H ${horizonLabel(num(d.horizonMinutes,0))}</span><strong>${d.decision}</strong></div>`).join('');
 }
+
+function formatDuration(ms){
+  const mins=Math.max(1,Math.round(ms/60000));
+  if(mins<60)return `${mins} min`;
+  const h=Math.floor(mins/60), m=mins%60;
+  if(h<24)return `${h} h${m?` ${m} min`:''}`;
+  const d=Math.floor(h/24), rh=h%24;
+  return `${d} j${rh?` ${rh} h`:''}`;
+}
+function renderHistorySummary(){
+  const stats=accountStats();
+  const closed=state.closed||[];
+  const total=closed.length;
+  const wins=closed.filter(p=>num(p.netPnlUSDC)>0).length;
+  const winRate=total?(wins/total*100):0;
+  const realized=closed.reduce((a,p)=>a+num(p.netPnlUSDC),0);
+  const gross=closed.reduce((a,p)=>a+num(p.grossPnlUSDC),0);
+  const fees=closed.reduce((a,p)=>a+num(p.feesUSDC),0);
+  const avg=total?realized/total:0;
+  const best=closed.reduce((m,p)=>Math.max(m,num(p.netPnlUSDC)),0);
+  const worst=closed.reduce((m,p)=>Math.min(m,num(p.netPnlUSDC)),0);
+  const html=[
+    ['P&L réalisé', fmtValue(realized), `${total} trade${total>1?'s':''} clôturé${total>1?'s':''}`],
+    ['P&L latent', fmtValue(stats.openNet), `${state.positions.length} position${state.positions.length>1?'s':''} ouverte${state.positions.length>1?'s':''}`],
+    ['P&L cumulé', fmtValue(stats.realizedNet+stats.openNet), `Capital total ${fmtValue(stats.equity)}`],
+    ['Win rate', `${winRate.toFixed(1)} %`, `${wins} gagnant${wins>1?'s':''} / ${Math.max(0,total-wins)} perdant${(total-wins)>1?'s':''}`],
+    ['Frais cumulés', fmtValue(fees), `Brut cumulé ${fmtValue(gross)}`],
+    ['Trade moyen', fmtValue(avg), `Best ${fmtValue(best)} • Worst ${fmtValue(worst)}`],
+  ].map(([label,val,sub])=>`<div class="history-stat"><span>${label}</span><b class="${klass(typeof val==='string'&&val.includes('USDC')?0:0)}">${val}</b><small>${sub}</small></div>`).join('');
+  const box=$('#historySummary'); if(box) box.innerHTML=html;
+  const stamp=$('#historyUpdatedAt'); if(stamp) stamp.textContent=`Dernière mise à jour ${new Date().toLocaleString()}`;
+}
+
 function renderClosed(){
   if(!state.closed.length){$('#closedList').innerHTML='<div class="empty">Aucune position clôturée enregistrée.</div>';return}
   $('#closedList').innerHTML=state.closed.map(p=>`<div class="closed-row closed-v5"><span>${new Date(p.closedAt).toLocaleString()}</span><b>${p.name} (${p.symbol.toUpperCase()}) • ${p.side?.toUpperCase()||'—'} • ${p.leverage}×</b><span>${p.closeReason||'—'}</span><span>Brut ${fmtValue(p.grossPnlUSDC)}</span><span>Frais ${fmtValue(p.feesUSDC)}</span><b class="${klass(p.netPnlUSDC)}">Net ${fmtValue(p.netPnlUSDC)}</b></div>`).join('');
