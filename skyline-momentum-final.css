@@ -1,105 +1,100 @@
-/* EBYTDA V31 — precise placed skyline + crisp yellow BTC, no scrolling background */
+/* EBYTDA V31 — classic clean theme with BTC/ETH coins, responsive */
 :root{
-  --skyline-final:url("assets/dubai-neon-hd.webp");
-  --btc-emblem:url("assets/btc-neon-reflective.png");
+  --coins-asset:url("assets/coins-btc-eth-clean.webp");
 }
 html,body{min-height:100%}
 body{
-  background:#04070d!important;
-  background-image:linear-gradient(180deg,#04070d 0%, #050912 100%)!important;
+  background:#05080d!important;
+  background-image:radial-gradient(circle at 75% 16%, rgba(24,93,178,.10), transparent 24%), linear-gradient(180deg,#04070c 0%, #070b12 100%)!important;
   background-attachment:scroll!important;
 }
-/* remove all previous global/background effects */
-body::before,body::after,
-.public-shell::before,.app-shell::before,#radar::before,#publicHome .public-section::before,
-#publicHome .skyline-window,#privateApp .dashboard-skyline,.btc-sky{
-  content:none!important;display:none!important;
-}
-#publicHome,#privateApp,#publicHome .public-shell,#privateApp .app-shell{background:transparent!important;position:relative;z-index:1}
+/* remove all skyline / BTC text overlays */
+body::before,body::after,.public-shell::before,.app-shell::before,#radar::before,#publicHome .public-section::before,
+#publicHome .skyline-window,#privateApp .dashboard-skyline,.btc-sky{content:none!important;display:none!important}
 
-/* HOME HERO */
+#publicHome,#publicHome .public-shell,#privateApp,#privateApp .app-shell{background:transparent!important}
+
+/* hero layout */
 #publicHome .public-hero{
   position:relative!important;
   isolation:isolate!important;
   overflow:hidden!important;
-  min-height:700px!important;
-  background:linear-gradient(180deg,rgba(5,10,18,.76),rgba(5,10,18,.86))!important;
-  border:1px solid rgba(233,186,72,.14)!important;
-  box-shadow:0 22px 54px rgba(0,0,0,.28)!important;
+  min-height:680px!important;
+  background:linear-gradient(180deg,rgba(6,10,18,.76),rgba(6,10,18,.84))!important;
+  border:1px solid rgba(231,185,72,.12)!important;
+  box-shadow:0 22px 62px rgba(0,0,0,.26)!important;
 }
-/* subtle dark blend over the whole hero so there is no color break */
 #publicHome .public-hero::before{
   content:""!important;
   position:absolute!important;
   inset:0!important;
-  z-index:0!important;
   pointer-events:none!important;
   background:
-    linear-gradient(90deg,rgba(3,8,15,.98) 0%,rgba(3,8,15,.96) 22%,rgba(4,9,16,.88) 36%,rgba(4,9,16,.62) 50%,rgba(4,9,16,.30) 66%,rgba(4,9,16,.10) 82%,rgba(4,9,16,.03) 100%),
-    radial-gradient(circle at 76% 26%,rgba(51,136,255,.08),transparent 18%),
-    radial-gradient(circle at 81% 20%,rgba(255,199,78,.07),transparent 14%);
+    linear-gradient(90deg,rgba(3,8,15,.96) 0%,rgba(3,8,15,.94) 22%,rgba(4,9,16,.85) 38%,rgba(4,9,16,.52) 58%,rgba(4,9,16,.24) 72%,rgba(4,9,16,.10) 84%,rgba(4,9,16,.03) 100%),
+    radial-gradient(circle at 72% 18%,rgba(42,124,255,.08),transparent 20%),
+    radial-gradient(circle at 84% 28%,rgba(231,185,72,.06),transparent 16%);
+  z-index:0!important;
 }
-#publicHome .public-copy,#publicHome .public-visual{position:relative!important;z-index:2!important}
-#publicHome .public-copy{text-shadow:0 2px 16px rgba(0,0,0,.58)}
+#publicHome .public-copy,#publicHome .public-visual{position:relative!important;z-index:1!important}
+#publicHome .public-copy{text-shadow:0 2px 16px rgba(0,0,0,.56)}
 #publicHome .public-visual{
   position:relative!important;
-  align-self:end!important;
-  max-width:92%;
-  margin:0 0 28px auto!important;
   min-height:520px!important;
+  max-width:96%!important;
+  margin:0 0 22px auto!important;
+  align-self:end!important;
 }
-/* precise skyline photo placed on the right, not as page background */
-#publicHome .public-visual::before{
-  content:""!important;
-  position:absolute!important;
-  top:10px!important;
-  right:8px!important;
-  width:min(48vw,760px)!important;
-  height:min(36vw,470px)!important;
-  max-height:470px!important;
-  border-radius:28px!important;
-  background:
-    linear-gradient(180deg,rgba(4,7,12,.12) 0%,rgba(4,7,12,.04) 24%,rgba(4,7,12,.04) 72%,rgba(4,7,12,.16) 100%),
-    var(--skyline-final) center/cover no-repeat!important;
-  opacity:1!important;
-  pointer-events:none!important;
-  z-index:0!important;
-  filter:saturate(1.18) contrast(1.08) brightness(1.06) drop-shadow(0 16px 44px rgba(0,0,0,.28));
-  -webkit-mask-image:radial-gradient(circle at 54% 48%,rgba(0,0,0,.98) 0%,rgba(0,0,0,.96) 45%,rgba(0,0,0,.86) 62%,rgba(0,0,0,.58) 78%,rgba(0,0,0,.14) 92%,rgba(0,0,0,0) 100%);
-  mask-image:radial-gradient(circle at 54% 48%,rgba(0,0,0,.98) 0%,rgba(0,0,0,.96) 45%,rgba(0,0,0,.86) 62%,rgba(0,0,0,.58) 78%,rgba(0,0,0,.14) 92%,rgba(0,0,0,0) 100%);
-}
-/* very visible BTC symbol placed precisely */
-#publicHome .public-visual::after{
-  content:""!important;
-  position:absolute!important;
-  top:18px!important;
-  right:18px!important;
-  width:170px!important;
-  height:170px!important;
-  border-radius:50%!important;
-  background:var(--btc-emblem) center/contain no-repeat!important;
-  pointer-events:none!important;
-  z-index:3!important;
-  opacity:.96!important;
-  filter:
-    drop-shadow(0 0 0 rgba(0,0,0,0))
-    drop-shadow(0 0 2px rgba(0,0,0,.88))
-    drop-shadow(0 0 5px rgba(0,0,0,.80))
-    drop-shadow(0 0 12px rgba(255,196,68,.24))
-    saturate(1.16) contrast(1.08)!important;
-}
+/* screenshot stays clean */
 #publicHome .brand-frame{
-  position:relative!important;
+  position:absolute!important;
+  right:16px!important;
+  top:120px!important;
+  width:min(38vw,620px)!important;
   z-index:2!important;
-  background:linear-gradient(180deg,rgba(7,12,22,.60),rgba(4,9,17,.74))!important;
-  border:1px solid rgba(233,186,72,.22)!important;
-  box-shadow:0 24px 58px rgba(0,0,0,.34)!important;
+  background:linear-gradient(180deg,rgba(8,14,24,.66),rgba(5,10,18,.76))!important;
+  border:1px solid rgba(231,185,72,.20)!important;
+  box-shadow:0 22px 54px rgba(0,0,0,.34)!important;
   min-height:0!important;
 }
 #publicHome .brand-frame::before,#publicHome .brand-frame::after{content:none!important;display:none!important}
-#publicHome .brand-frame img{display:block!important;width:100%;height:auto;opacity:.96}
+#publicHome .brand-frame img{display:block!important;width:100%;height:auto;opacity:.97}
+/* coins asset integrated cleanly */
+#publicHome .public-visual::after{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  right:0!important;
+  width:min(30vw,430px)!important;
+  height:min(24vw,310px)!important;
+  background:var(--coins-asset) center/contain no-repeat!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.28));
+}
+/* dashboard gets a smaller coin visual in the header area */
+#privateApp #radar{
+  position:relative!important;
+  overflow:hidden!important;
+  background:linear-gradient(180deg,rgba(7,12,20,.74),rgba(7,12,20,.82))!important;
+  border:1px solid rgba(231,185,72,.10)!important;
+  box-shadow:0 18px 48px rgba(0,0,0,.22)!important;
+}
+#privateApp #radar::after{
+  content:""!important;
+  position:absolute!important;
+  top:22px!important;
+  right:26px!important;
+  width:200px!important;
+  height:140px!important;
+  background:var(--coins-asset) center/contain no-repeat!important;
+  opacity:.92!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.24));
+}
+#privateApp .intro,#privateApp .kpis{position:relative!important;z-index:1!important}
 
-/* keep the rest clean and coherent */
+/* keep other sections classic and clean */
 #publicHome .public-process,
 #publicHome .public-security,
 #publicHome .public-system,
@@ -108,7 +103,6 @@ body::before,body::after,
 #publicHome .public-ticket,
 #publicHome .public-legal,
 #privateApp .topbar,
-#privateApp #radar,
 #privateApp .section-card,
 #privateApp .card,
 #privateApp .panel,
@@ -116,34 +110,54 @@ body::before,body::after,
 #privateApp .decision-card,
 #privateApp .history-card,
 #privateApp .order-modal .order-card{
-  background:linear-gradient(180deg,rgba(5,10,18,.70),rgba(5,10,18,.82))!important;
+  background:linear-gradient(180deg,rgba(6,10,18,.72),rgba(6,10,18,.82))!important;
   backdrop-filter:blur(4px)!important;
   -webkit-backdrop-filter:blur(4px)!important;
-  box-shadow:0 18px 52px rgba(0,0,0,.20)!important;
-  border:1px solid rgba(233,186,72,.10)!important;
+  border:1px solid rgba(231,185,72,.10)!important;
+  box-shadow:0 16px 44px rgba(0,0,0,.20)!important;
 }
-#privateApp .intro,#privateApp .kpis{position:relative!important;z-index:1!important}
 #radar .intro::after,.app-shell::after,#publicHome .public-process::after{content:none!important;display:none!important}
 
+/* responsive tablet */
 @media(max-width:1250px){
   #publicHome .public-hero{min-height:0!important}
-  #publicHome .public-visual{min-height:420px!important;margin:24px auto 14px!important}
-  #publicHome .public-visual::before{width:min(50vw,640px)!important;height:min(36vw,400px)!important;right:0!important}
-  #publicHome .public-visual::after{width:144px!important;height:144px!important;right:8px!important;top:14px!important}
+  #publicHome .public-visual{min-height:420px!important;margin:24px auto 12px!important}
+  #publicHome .brand-frame{width:min(42vw,520px)!important;top:96px!important;right:8px!important}
+  #publicHome .public-visual::after{width:min(32vw,340px)!important;height:min(24vw,240px)!important}
+  #privateApp #radar::after{width:160px!important;height:112px!important;right:18px!important}
 }
+/* responsive mobile */
 @media(max-width:820px){
   #publicHome .public-hero::before{
     background:
-      linear-gradient(180deg,rgba(3,8,15,.92) 0%,rgba(3,8,15,.84) 42%,rgba(3,8,15,.52) 74%,rgba(3,8,15,.18) 100%),
-      radial-gradient(circle at 78% 18%,rgba(51,136,255,.08),transparent 16%),
-      radial-gradient(circle at 84% 14%,rgba(255,199,78,.06),transparent 12%);
+      linear-gradient(180deg,rgba(3,8,15,.92) 0%,rgba(3,8,15,.84) 44%,rgba(3,8,15,.48) 72%,rgba(3,8,15,.16) 100%),
+      radial-gradient(circle at 74% 16%,rgba(42,124,255,.06),transparent 18%),
+      radial-gradient(circle at 86% 26%,rgba(231,185,72,.05),transparent 14%);
   }
-  #publicHome .public-visual{min-height:320px!important;max-width:100%!important}
-  #publicHome .public-visual::before{top:6px!important;right:-8px!important;width:92%!important;height:240px!important;border-radius:22px!important}
-  #publicHome .public-visual::after{width:108px!important;height:108px!important;top:10px!important;right:8px!important}
+  #publicHome .public-visual{
+    min-height:360px!important;
+    max-width:100%!important;
+    margin:20px auto 0!important;
+  }
+  #publicHome .brand-frame{
+    position:relative!important;
+    top:auto!important;right:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin-top:120px!important;
+  }
+  #publicHome .public-visual::after{
+    width:220px!important;
+    height:155px!important;
+    top:0!important;
+    right:50%!important;
+    transform:translateX(50%)!important;
+  }
+  #privateApp #radar::after{width:128px!important;height:92px!important;top:18px!important;right:14px!important;opacity:.88!important}
 }
 @media(max-width:620px){
-  #publicHome .public-visual{min-height:260px!important}
-  #publicHome .public-visual::before{height:190px!important;width:96%!important;right:-10px!important}
-  #publicHome .public-visual::after{width:84px!important;height:84px!important;right:6px!important;top:8px!important}
+  #publicHome .public-visual{min-height:300px!important}
+  #publicHome .public-visual::after{width:180px!important;height:126px!important;top:4px!important}
+  #publicHome .brand-frame{margin-top:104px!important}
+  #privateApp #radar::after{display:none!important}
 }
