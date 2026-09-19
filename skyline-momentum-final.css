@@ -1,0 +1,60 @@
+/* EBYTDA V31 — final visible Dubai night skyline + Momentum identity. */
+:root{--skyline-final:url("assets/dubai-skyline-luminous-v31.webp")}
+/* Neutralize the previous almost-opaque layers once. */
+body::before,.public-shell::before,.app-shell::before,#radar::before,#publicHome .public-section::before{content:none!important;display:none!important}
+body{background:#050b13!important}
+#publicHome .public-hero{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  min-height:650px!important;
+  background-color:#0a1420!important;
+  background-image:linear-gradient(90deg,rgba(3,10,18,.96) 0%,rgba(3,10,18,.93) 28%,rgba(4,12,22,.72) 45%,rgba(4,12,22,.18) 69%,rgba(4,12,22,.05) 100%),var(--skyline-final)!important;
+  background-size:cover,cover!important;
+  background-position:center,center 53%!important;
+  background-repeat:no-repeat,no-repeat!important;
+  box-shadow:0 34px 90px rgba(0,0,0,.4),inset 0 0 1px rgba(230,185,80,.4)!important;
+}
+#publicHome .public-hero::before,#publicHome .public-hero::after{content:none!important;display:none!important}
+#publicHome .public-copy,#publicHome .public-visual{position:relative;z-index:2}
+#publicHome .public-copy{text-shadow:0 1px 8px rgba(0,0,0,.6)}
+#publicHome .public-visual{align-self:end!important;max-width:92%;margin:0 0 24px auto!important}
+#publicHome .brand-frame{background:rgba(7,13,24,.73)!important;box-shadow:0 15px 52px rgba(0,0,0,.43)!important;border:1px solid rgba(229,189,88,.3)!important;min-height:0!important}
+#publicHome .brand-frame::before,#publicHome .brand-frame::after{content:none!important;display:none!important}
+#publicHome .brand-frame img{display:block!important;width:100%;height:auto;opacity:.91}
+/* Real background on the dedicated empty, wide sections. */
+#publicHome .skyline-window,#privateApp .dashboard-skyline{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#132335!important;
+  background-image:linear-gradient(90deg,rgba(2,11,20,.26),rgba(2,11,20,.0) 38%,rgba(2,11,20,.15)),var(--skyline-final)!important;
+  background-size:cover,cover!important;background-position:center,center 57%!important;background-repeat:no-repeat!important;
+  border:1px solid rgba(230,186,78,.47)!important;
+  box-shadow:0 18px 65px rgba(0,0,0,.32),inset 0 0 26px rgba(5,13,22,.12)!important;
+}
+#publicHome .skyline-window{height:235px!important;margin:20px 0 8px!important}
+#privateApp .dashboard-skyline{height:245px!important;margin:12px 0 23px!important}
+#privateApp #radar{background:transparent!important}
+#privateApp #radar .intro{position:relative;z-index:2}
+#privateApp #radar .kpis{position:relative;z-index:2}
+/* BTC accent, with clear safety margins: only empty photo zones. */
+.btc-sky{z-index:3!important;border-color:rgba(248,194,70,.7)!important;color:#ffcb67!important;
+  background:linear-gradient(145deg,rgba(69,48,15,.94),rgba(7,19,30,.92))!important;
+  box-shadow:0 11px 32px rgba(0,0,0,.44),inset 0 0 15px rgba(255,200,70,.16)!important}
+#publicHome .btc-home-1{top:18px!important;right:22px!important}
+#publicHome .btc-home-2{bottom:18px!important;right:22px!important}
+#privateApp .btc-dash-1{right:19px!important;top:18px!important}
+#privateApp .btc-dash-2{right:92px!important;bottom:18px!important}
+#publicHome .btc-strip{right:22px!important;top:20px!important}
+#radar .intro::after,.app-shell::after,#publicHome .public-process::after{content:none!important;display:none!important}
+@media(max-width:1250px){
+  #publicHome .public-hero{min-height:0!important;background-position:center,67% center!important}
+  #publicHome .public-visual{margin:26px auto 14px!important}
+}
+@media(max-width:820px){
+  #publicHome .public-hero{background-image:linear-gradient(180deg,rgba(3,10,18,.93) 0%,rgba(3,10,18,.81) 45%,rgba(3,10,18,.13) 100%),var(--skyline-final)!important; background-position:center,71% center!important}
+  #publicHome .skyline-window,#privateApp .dashboard-skyline{height:168px!important}
+}
+@media(max-width:620px){
+ #publicHome .public-hero{min-height:0!important;background-position:center,67% center!important}
+ #publicHome .skyline-window,#privateApp .dashboard-skyline{height:132px!important}
+ #publicHome .btc-home-2,#privateApp .btc-dash-2{display:none!important}
+ #publicHome .public-visual{max-width:100%!important}
+}
