@@ -1,0 +1,132 @@
+/* EBYTDA V31 • Dubaï nuit / responsive. Additive: V30 engine + V31 Trading Desk preserved. */
+:root{--dubai-photo:url("assets/dubai-night-ai.webp")}
+html{max-width:100%;scroll-padding-top:112px}
+body{background:#050b13;max-width:100%;overflow-x:clip}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(90deg,rgba(4,9,15,.93) 0%,rgba(4,10,18,.67) 46%,rgba(4,10,18,.55) 100%),var(--dubai-photo);
+  background-position:center,center 32%;background-size:cover;opacity:.33;
+}
+body > header,body > main,body > .modal,body > .toast{position:relative;z-index:1}
+body > header.topnav{position:sticky;z-index:50}
+body > .modal{position:fixed;z-index:100}
+body > .toast{position:fixed;z-index:200}
+.public-home,.private-app{background:transparent}
+.public-shell,.app-shell{position:relative;min-width:0}
+.public-hero{
+  isolation:isolate;position:relative;overflow:hidden;min-width:0;
+  grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+  min-height:min(780px,calc(100svh - 105px));gap:clamp(18px,3vw,48px);
+  padding:clamp(26px,4vw,64px);border:1px solid rgba(225,182,83,.22);border-radius:30px;
+  background:linear-gradient(110deg,rgba(6,13,22,.91) 0%,rgba(6,16,28,.78) 54%,rgba(6,16,28,.42) 100%);
+  box-shadow:0 35px 100px rgba(0,0,0,.32)
+}
+.public-hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(90deg,rgba(5,11,19,.96) 0%,rgba(5,12,22,.64) 43%,rgba(5,12,22,.29) 100%),var(--dubai-photo);
+  background-size:cover;background-position:center,center 47%;opacity:.60;
+}
+.public-copy,.public-visual{position:relative;z-index:1;min-width:0}
+.public-copy h1{font-size:clamp(42px,5.3vw,78px);overflow-wrap:normal}
+.public-copy>p{font-size:clamp(13px,1.14vw,17px);line-height:1.67;color:#e0e9f3;text-wrap:pretty;max-width:650px}
+.public-hero .eyebrow{font-size:clamp(9px,.9vw,12px);letter-spacing:.2em}
+.brand-frame{max-width:100%;background:linear-gradient(145deg,rgba(237,192,88,.35),rgba(17,144,252,.23));box-shadow:0 27px 92px rgba(0,0,0,.58)}
+.brand-frame img{max-width:100%;height:auto}
+.public-trust span{background:rgba(6,16,28,.75);border-color:rgba(238,192,92,.31)}
+.public-section{position:relative;padding:clamp(40px,6vw,86px) 0}
+.how-card,.static-pipeline>div,.security-cards article{background:linear-gradient(175deg,rgba(11,22,33,.96),rgba(6,15,25,.92));backdrop-filter:blur(8px)}
+.private-app .panel,.private-app .kpi,.private-app .mini,.private-app .fcard,.private-app .crypto-tile{
+  backdrop-filter:blur(9px)
+}
+.topnav-inner,.public-shell,.app-shell{max-width:1640px;width:100%}
+.topnav-inner>*{min-width:0}
+button,a,.control{touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #f3d77f;outline-offset:3px}
+.control,select,input{max-width:100%;min-width:0}
+.panel,.chart-card,.desk-chart-panel,.desk-ticket-panel,.desk-main,.desk-pickers,.desk-form{min-width:0}
+.desk-widget-container{width:100%;max-width:100%;height:clamp(340px,36vw,530px)}
+.desk-table{min-width:780px}
+.table-shell{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.desk-pickers{grid-template-columns:repeat(3,minmax(0,1fr))}
+.desk-pickers .btn{width:100%}
+.desk-pickers .control{width:100%}
+.desk-intro{gap:16px}
+.desk-pick-buttons{flex-wrap:wrap}
+.desk-lock label{cursor:pointer}
+@media(max-width:1250px){
+ .public-hero{grid-template-columns:1fr;min-height:unset}
+ .public-visual{max-width:850px;width:100%;margin-inline:auto}
+ .public-hero::before{background-position:center,70% center;opacity:.45}
+ .topnav-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 14px}
+ .topnav-inner .main-menu{order:3;flex:1 0 100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:5px}
+ .topnav-inner .top-actions{order:2;flex:0 1 auto}
+ .topnav-inner .logo-wrap{order:1}
+ .desk-main{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:820px){
+ .public-shell,.app-shell{padding:12px 12px 34px}
+ .public-hero{padding:clamp(18px,4vw,32px);border-radius:22px;gap:24px}
+ .public-copy h1{font-size:clamp(36px,8vw,60px);line-height:1.02}
+ .public-copy>p{margin:18px 0 20px;font-size:14px;line-height:1.65}
+ .public-actions{gap:9px}
+ .big-btn{min-height:48px;padding:12px 17px;font-size:11px}
+ .brand-frame{padding:6px;border-radius:17px}
+ .brand-frame img{border-radius:12px}
+ .how-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .security-public{grid-template-columns:1fr}
+ .static-pipeline,.engine-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .static-pipeline>i,.engine-flow>i{display:none}
+ .desk-pickers{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .desk-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .desk-roadmap-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .chart-card,.panel.pad{padding:clamp(11px,2.6vw,17px)}
+}
+@media(max-width:620px){
+ .topnav-inner{padding:9px 12px 7px;display:flex;align-items:center;gap:8px;width:100%}
+ .topnav-inner .logo-wrap{flex:1 1 100%}
+ .exact-logo{width:145px;height:38px;object-fit:contain;object-position:left}
+ .topnav-inner .top-actions{order:2;flex:1 1 100%;display:flex;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:5px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+ .topnav-inner .top-actions>*{flex-shrink:0}
+ .topnav-inner .main-menu{order:3;flex:1 1 100%;gap:4px}
+ .menu-item{font-size:11px;padding:10px 12px;white-space:nowrap;flex-shrink:0}
+ .topnav .switcher button{min-height:32px}
+ .public-hero{padding:19px 15px;gap:20px;border-radius:18px}
+ .public-copy h1{font-size:clamp(33px,9.6vw,48px)}
+ .public-copy>p{font-size:13px}
+ .public-actions{display:grid;grid-template-columns:1fr;gap:8px}
+ .public-actions .btn{width:100%;white-space:normal;text-align:center}
+ .public-trust{gap:5px}.public-trust span{font-size:9px;padding:6px 8px}
+ .how-grid,.static-pipeline,.engine-flow,.security-cards{grid-template-columns:1fr}
+ .public-section{padding:38px 0}
+ .section-center h2,.security-copy h2{font-size:clamp(23px,6vw,32px)}
+ .kpis,.kpis-v4,.kpis-v5,.auto-stats,.selected-score-grid,.perf-indexes,.closed-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .crypto-grid100{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero-choice{flex-direction:column;gap:10px}
+ .hero-score{text-align:left}
+ .hero-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .top3{grid-template-columns:1fr}
+ .desk-pickers,.desk-form,.desk-actions,.desk-roadmap-list{grid-template-columns:1fr}
+ .desk-pick-buttons,.desk-actions{display:flex;flex-direction:column}
+ .desk-pick-buttons .btn,.desk-actions .btn{width:100%}
+ .desk-widget-container{height:360px;min-height:360px}
+ .desk-kpi{min-height:92px}.desk-kpi b{font-size:17px}
+ .desk-ticket-panel .panel-head,.desk-chart-panel .panel-head,.desk-journal-panel .panel-head{flex-wrap:wrap;align-items:flex-start}
+ .desk-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .desk-tab{min-width:0;padding:10px 8px}
+ .desk-security-banner{display:block}
+ .desk-security-banner span{display:block;margin-top:9px}
+ .desk-preview .desk-preview-grid{grid-template-columns:1fr}
+ .modal-card{width:calc(100% - 16px);margin:8px auto;max-height:calc(100dvh - 16px);padding:14px}
+ .modal-lock{flex-wrap:wrap}.order-form{grid-template-columns:1fr}
+ .toast{left:8px;right:8px;max-width:none}
+ footer{flex-direction:column;gap:9px}
+}
+@media(max-width:375px){
+ .public-copy h1{font-size:32px}
+ .desk-kpis{grid-template-columns:1fr}
+ .kpis,.kpis-v5{grid-template-columns:1fr 1fr}
+ .kpi-value{font-size:18px}
+ .public-shell,.app-shell{padding-inline:8px}
+ .public-hero{padding-inline:12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}

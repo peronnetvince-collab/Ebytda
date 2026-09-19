@@ -1,9 +1,5 @@
 [build]
-  command = "npm install --omit=dev --no-audit --no-fund"
-  publish = "public"
-
-[build.environment]
-  NODE_VERSION = "22"
+  publish = "."
 
 [functions]
   directory = "functions"
