@@ -105,3 +105,14 @@ functions/broker-live-order.js     NOUVEAU : refus 403
 functions/broker-auto-order.js     NOUVEAU : refus 403
 tests/broker-core.test.js          NOUVEAU
 ```
+
+
+## Correctif V31 — skyline Dubaï VISIBLE (19/09/2026)
+
+La feuille `dubai-vivid-v2.css` est ajoutée **en dernier** dans `index.html` pour corriger le fond précédent devenu quasiment invisible sous des dégradés opaques. Elle pose directement l'image `assets/dubai-night-ai.webp` comme fond du hero et ajoute des bandes photographiques distinctes sur l'accueil et dans le Dashboard, sans placer de photo sur les cartes de données. Symboles BTC décoratifs. Aucun changement de l'algorithme ou des ordres.
+
+### Déployer sur GitHub
+
+Avec le ZIP de mise à jour : remplacer `index.html`, ajouter `dubai-vivid-v2.css` à la racine, vérifier que `assets/dubai-night-ai.webp` existe dans `assets/`. Conserver `styles.css`, `responsive-dubai.css`, `app.js`, les fonctions et tous les autres fichiers. Si la V31 initiale n'est pas encore déployée, prendre le ZIP COMPLET à la place.
+
+Le CSS nouveau est référencé avec un paramètre de version distinct pour éviter de servir l'ancienne feuille en cache.
