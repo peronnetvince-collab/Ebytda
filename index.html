@@ -7,12 +7,13 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>EBYTDA — Crypto IA V20 Clean Data Engine</title>
+  <title>EBYTDA — Crypto IA V31 Broker Connect (Paper)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
-  <link rel="stylesheet" href="styles.css?v=23.0.0">
+  <link rel="stylesheet" href="styles.css?v=30.0.0">
+  <link rel="stylesheet" href="broker-connect.css?v=31.0.0">
 </head>
 <body>
   <div id="toast" class="toast"></div>
@@ -32,6 +33,7 @@
         <button class="menu-item" data-private-nav="positions">Positions</button>
         <button class="menu-item" data-private-nav="universe">Top 200 • 2 ans+</button>
         <button class="menu-item" data-private-nav="history">Historique</button>
+        <button class="menu-item" data-private-nav="tradingDesk">Trading Desk <span class="desk-nav-pill">V31</span></button>
       </nav>
 
       <div class="top-actions">
@@ -239,7 +241,7 @@
                 <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Sortie défensive</span><b id="stopLevel">IA dynamique</b></div><div class="ai-level"><span>Prise de gain</span><b id="tp1Level">IA dynamique</b></div><div class="ai-level"><span>Horizon maximum</span><b id="tp2Level">5 jours</b></div></div>
                 <div id="selectedReason" class="ai-summary">—</div>
                 <div class="gain-grid"><div><span>Momentum</span><b id="gain1">—</b></div><div><span>Continuation</span><b id="gain2">—</b></div><div><span>Sortie IA</span><b id="gain3">DYNAMIQUE</b></div></div>
-                <button id="openOrderBtn" class="btn btn-ai" disabled>PRÉPARER UN ORDRE MANUEL</button><div id="orderEligibilityNote" class="ai-warning">—</div>
+                <button id="openOrderBtn" class="btn btn-ai" disabled>PRÉPARER UN ORDRE MANUEL</button><button id="sendSelectedToDesk" class="btn btn-blue desk-inline-btn" type="button">OUVRIR DANS LE TRADING DESK →</button><div id="orderEligibilityNote" class="ai-warning">—</div>
               </section>
 
               <section class="panel pad broker-links">
@@ -282,6 +284,74 @@
           <div id="closedList" class="closed-cards"></div>
         </section>
 
+
+        <!-- V31: Broker Connect est isolé du moteur AutoPilot historique V30. -->
+        <section id="tradingDesk" class="page-section desk-section" aria-label="EBYTDA Trading Desk Broker Connect">
+          <div class="intro desk-intro">
+            <div><div class="eyebrow">EBYTDA • V31 BROKER CONNECT</div>
+              <h1>Trading <span class="gold">Desk</span></h1>
+              <p>Passerelle broker • widget graphique • Trading Day / Week • ticket d'ordre testable sans ordre réel.</p>
+            </div>
+            <div class="desk-badges"><span class="badge gold-badge">V30 FORCE CORE CONSERVÉ</span>
+              <span class="badge desk-disabled">🔒 LIVE EXECUTION OFF</span>
+              <span class="badge" id="deskBackendState">SERVEUR : VÉRIFICATION…</span></div>
+          </div>
+          <div class="panel pad desk-security-banner">
+            <b>🔒 Trading réel verrouillé côté serveur</b>
+            <span>Le « LIVE » des cours du dashboard n'est PAS un broker connecté. AutoPilot V30 reste 100 % papier. Le Trading Desk V31 ne passe que des ordres simulés ; le bouton « ordre réel » est volontairement indisponible.</span>
+          </div>
+          <div class="desk-kpis">
+            <article class="panel pad desk-kpi"><small>CONNEXION BROKER</small><b id="deskBrokerState" class="gold">AUCUN BROKER</b><span>Adaptateur à choisir après tests</span></article>
+            <article class="panel pad desk-kpi"><small>ORDRES RÉELS</small><b class="desk-red">BLOQUÉS</b><span>Verrou immuable de la V31</span></article>
+            <article class="panel pad desk-kpi"><small>ORDRES PAPIER V31</small><b id="deskCount">0</b><span>Journal distinct du portefeuille V30</span></article>
+            <article class="panel pad desk-kpi"><small>DONNÉES DU TICKET</small><b id="deskQuoteStatus">EN ATTENTE</b><span>Dernier prix EBYTDA, pas prix d'exécution broker</span></article>
+          </div>
+          <div class="desk-main">
+            <section class="panel pad desk-chart-panel">
+              <div class="panel-head"><div><div class="eyebrow">GRAPHIQUE TRADINGVIEW INTÉGRÉ • OUVERTURE EXTERNE</div><h2 id="deskChartTitle">BTC / USDT</h2><p>TradingView est un graphique tiers, pas un connecteur d'ordres.</p></div>
+                <span class="badge gold-badge" id="deskAssetScore">TOP EBYTDA —</span></div>
+              <div class="desk-pickers">
+                <label>Marché graphique <input id="deskWidgetSymbol" class="control" value="BTCUSDT" maxlength="24" placeholder="BTCUSDT" autocomplete="off"></label>
+                <label>Place du graphique <select id="deskWidgetExchange" class="control"><option value="BINANCE" selected>Binance · graphique</option><option value="BITGET">Bitget · graphique</option><option value="KRAKEN">Kraken · graphique</option><option value="COINBASE">Coinbase · graphique</option></select></label>
+                <label>Intervalle <select id="deskWidgetInterval" class="control"><option value="15">15 min</option><option value="60" selected>1 h</option><option value="240">4 h</option><option value="D">1 jour</option></select></label>
+                <button id="deskLoadWidget" class="btn btn-blue" type="button">ACTUALISER LE GRAPHIQUE ↻</button>
+                <button id="deskOpenTradingView" class="btn btn-dark" type="button">OUVRIR TRADINGVIEW ↗</button>
+              </div>
+              <div id="deskWidgetPlaceholder" class="desk-widget-placeholder">
+                <strong>Chargement du graphique TradingView…</strong><span>Le graphique se charge à l'ouverture du Trading Desk (connexion Internet requise). Vous pouvez aussi l'ouvrir dans un onglet TradingView indépendant.</span>
+              </div>
+              <div id="deskWidgetContainer" class="desk-widget-container hidden" aria-label="Graphique TradingView"></div>
+              <p class="desk-help">Place du graphique = source du cours affiché, sans connexion à votre compte. Pour une paire absente, changez de place. Aucun ordre n'est transmis par TradingView ni par cette V31.</p>
+            </section>
+            <section class="panel pad desk-ticket-panel">
+              <div class="panel-head"><div><div class="eyebrow">TICKET D'ORDRE • PAPER ONLY</div><h2>Préparer un ordre crypto</h2><p id="deskPickInfo">Sélectionnez un actif ou reprenez le TOP 3 d'EBYTDA.</p></div><span class="badge desk-disabled">SIMULATION</span></div>
+              <div class="desk-tabs" role="group" aria-label="Horizon de trading"><button type="button" class="desk-tab active" data-desk-horizon="DAY">TRADING DAY <small>15 min → 24 h</small></button><button type="button" class="desk-tab" data-desk-horizon="WEEK">TRADING WEEK <small>2 → 7 jours</small></button></div>
+              <div class="desk-form">
+                <label>Actif (Top EBYTDA) <select id="deskAsset" class="control"><option value="">Chargement des signaux…</option></select></label>
+                <label>Broker futur <select id="deskBroker" class="control"><option value="UNDECIDED">Non choisi — simulation</option><option value="KRAKEN">Kraken (préparation)</option><option value="BINANCE">Binance (préparation)</option><option value="COINBASE">Coinbase Advanced (préparation)</option><option value="OTHER">Autre (à spécifier)</option></select></label>
+                <label>Sens Spot <select id="deskSide" class="control"><option value="BUY">ACHAT SPOT</option><option value="SELL">VENTE SPOT (actif détenu)</option></select></label>
+                <label>Type d'ordre <select id="deskType" class="control"><option value="MARKET">Marché simulé</option><option value="LIMIT">Limite simulée</option></select></label>
+                <label>Montant en USDT <input id="deskAmount" type="number" class="control" min="10" max="1000" step="any" value="100"></label>
+                <label>Prix de référence USDT <input id="deskPrice" type="number" class="control" min="0.00000001" step="any" placeholder="Prix depuis EBYTDA"></label>
+                <label id="deskLimitField" class="hidden">Prix limite USDT <input id="deskLimit" type="number" class="control" min="0.00000001" step="any"></label>
+                <label>Stop indicatif USDT <input id="deskStop" type="number" class="control" min="0" step="any" placeholder="Optionnel, simulation"></label>
+                <label>Objectif indicatif USDT <input id="deskTarget" type="number" class="control" min="0" step="any" placeholder="Optionnel, simulation"></label>
+                <div class="desk-form-full desk-pick-buttons"><button id="deskUseSelected" type="button" class="btn btn-dark">UTILISER L'ACTIF SÉLECTIONNÉ</button><button id="deskUseTop" type="button" class="btn btn-dark">PRENDRE LE TOP 1 EBYTDA</button></div>
+              </div>
+              <p class="desk-help">SELL = vendre des cryptoactifs déjà détenus ; aucun short ni effet de levier. Stops/objectifs indicatifs uniquement : aucun ordre conditionnel ne sera placé.</p>
+              <div id="deskPreview" class="desk-preview" aria-live="polite">Saisissez un montant et cliquez sur « Prévisualiser ».</div>
+              <div class="desk-actions"><button id="deskPreviewButton" type="button" class="btn btn-blue">PRÉVISUALISER</button><button id="deskPaperButton" type="button" class="btn btn-primary" disabled>CONFIRMER L'ORDRE PAPIER</button></div>
+              <div class="desk-lock"><input type="checkbox" id="deskConfirmPaper"><label for="deskConfirmPaper">Je confirme qu'il s'agit uniquement d'une simulation sans engagement de fonds.</label></div>
+              <button id="deskLiveButton" type="button" class="btn desk-live-off" disabled>🔒 PASSER UN ORDRE RÉEL — VERROUILLÉ V31</button>
+            </section>
+          </div>
+          <section class="panel pad desk-journal-panel">
+            <div class="panel-head"><div><div class="eyebrow">JOURNAL V31</div><h2>Ordres simulés du Trading Desk</h2><p>Stockage local de démonstration, distinct des positions AutoPilot V30. Ne prouve aucune exécution sur un exchange.</p></div><button type="button" class="btn btn-dark small-btn" id="deskClearJournal">EFFACER LE JOURNAL V31</button></div>
+            <div class="table-shell"><table class="desk-table"><thead><tr><th>Date</th><th>Actif</th><th>Sens</th><th>Horizon</th><th>Montant</th><th>Prix référence</th><th>Quantité estimée</th><th>Statut</th></tr></thead><tbody id="deskJournal"><tr><td colspan="8">Aucun ordre papier V31.</td></tr></tbody></table></div>
+          </section>
+          <section class="panel pad desk-roadmap"><div class="eyebrow">AUTOMATIQUE APRÈS TESTS</div><h2>Passerelle broker : prochaine étape</h2><div class="desk-roadmap-list"><span>✓ V30 préservée</span><span>✓ TradingView intégré + ouverture externe</span><span>✓ Prévisualisation validée serveur</span><span>✓ Simulation serveur</span><span>🔒 Authentification réelle</span><span>🔒 API broker et permissions sans retrait</span><span>🔒 Réconciliation des fills</span><span>🔒 Kill switch et tests auto</span></div></section>
+        </section>
+
         <footer><span>EBYTDA Crypto IA V30 • Force Core • Mature 200 • Multi-Timeframe • 3–10 positions • Sans levier • Espace personnel</span><span>Les scores, signaux et objectifs sont des aides à la décision. Aucune performance n’est garantie.</span></footer>
       </div>
     </section>
@@ -318,6 +388,7 @@
     </section>
   </div>
 
-  <script src="app.js?v=23.0.0"></script>
+  <script src="app.js?v=30.0.0"></script>
+  <script defer src="broker-connect.js?v=31.0.0"></script>
 </body>
 </html>

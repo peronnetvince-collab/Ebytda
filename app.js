@@ -337,5 +337,20 @@ function toggleAuto(){state.autoPilot=!!el('autoPilotToggle')?.checked;persist()
 function bind(id,event,fn){const x=el(id);if(x)x.addEventListener(event,fn)}
 bind('logoHomeBtn','click',showHome);bind('personalSpaceBtn','click',()=>state.auth?showDashboard():openAuth());bind('heroPersonalBtn','click',()=>state.auth?showDashboard():openAuth());bind('securityPersonalBtn','click',()=>state.auth?showDashboard():openAuth());bind('learnMoreBtn','click',()=>el('howItWorks')?.scrollIntoView({behavior:'smooth'}));bind('logoutBtn','click',logout);bind('loginBtn','click',login);$$('[data-close-auth]').forEach(x=>x.onclick=closeAuth);$$('[data-public-nav]').forEach(b=>b.onclick=()=>el(b.dataset.publicNav)?.scrollIntoView({behavior:'smooth'}));$$('[data-private-nav]').forEach(b=>b.onclick=()=>el(b.dataset.privateNav)?.scrollIntoView({behavior:'smooth'}));bind('refreshBtn','click',()=>scan(true));bind('refreshPositionsBtn','click',()=>refreshPositionPrices(true));bind('search','input',renderUniverse);bind('statusFilter','change',renderUniverse);bind('openOrderBtn','click',openOrder);bind('manualCheck','change',e=>{if(el('confirmOrderBtn'))el('confirmOrderBtn').disabled=!e.target.checked});bind('confirmOrderBtn','click',confirmOrder);$$('[data-close-order]').forEach(x=>x.onclick=closeOrder);bind('notifyBtn','click',requestNotifications);bind('autoPilotToggle','change',toggleAuto);$$('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));$$('[data-unit]').forEach(b=>b.onclick=()=>setUnit(b.dataset.unit));$$('[data-days]').forEach(b=>b.onclick=()=>{$$('[data-days]').forEach(x=>x.classList.toggle('active',x===b));state.chartDays=Number(b.dataset.days);loadChart()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAuth();closeOrder()}});
 
+// V31: passerelle en lecture seule vers le Trading Desk. Le portefeuille papier V30 reste indépendant.
+window.EBYTDA_V31_BRIDGE = Object.freeze({
+  snapshot: () => ({
+    selected: state.selected ? {
+      id:String(state.selected.id||''), symbol:String(state.selected.symbol||''), name:String(state.selected.name||''),
+      price:Number(state.selected.currentPriceUSDT)||0, ai:Number(state.selected.ai)||0,
+      direction:chooseSide(state.selected), signal:String(state.selected.label||'')
+    } : null,
+    ranked: state.ranked.slice(0,10).map(a=>({id:String(a.id||''),symbol:String(a.symbol||''),
+      name:String(a.name||''),price:Number(a.currentPriceUSDT)||0,ai:Number(a.ai)||0,
+      direction:chooseSide(a),signal:String(a.label||'')})),
+    liveMarket:!!state.liveMarket, lastScanAt:state.lastScanAt?.toISOString?.()||null,
+    marketSource:String(state.provider.marketSource||'')
+  })
+});
 sanitizeState();renderProviderStatus();renderAutoUI();applyLanguage();$$('[data-unit]').forEach(b=>b.classList.toggle('active',b.dataset.unit===state.unit));showHome();
 })();
