@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="responsive-dubai.css?v=31.1.2">
   <link rel="stylesheet" href="dubai-vivid-v2.css?v=20260920-momentum">
   <link rel="stylesheet" href="skyline-momentum-final.css?v=20260920-encart-noir-clean-1">
-</head>
+  <link rel="stylesheet" href="dashboard-prestige.css?v=20260920-bleu-or-1">
+<style>.day-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}.day-metrics span{padding:12px;background:#101d2a;border:1px solid #30465c;border-radius:12px}.day-metrics b{display:block;color:#e7c773;margin-top:8px}#dayDecisionDesk p{font-size:13px;line-height:1.6;color:#a8bacb}</style></head>
 <body>
   <div id="toast" class="toast"></div>
 
@@ -156,7 +157,7 @@
               <p>200 cryptos matures (2 ans+) • analyse multi-timeframe • scan IA toutes les 15 min • LONG + SHORT • 100 USDT sans levier</p>
             </div>
             <div class="live-group">
-              <span class="badge gold-badge">BUILD V30 • FORCE CORE 3→10</span>
+              <span class="badge gold-badge">BUILD V33 • DAY PAPER • 5 MAX</span>
               <span class="badge"><span class="dot"></span><span id="marketRegime">Analyse…</span></span>
               <span class="badge gold-badge">⏱ <span id="countdown">—</span></span>
               <div class="dashboard-mini-coins" aria-hidden="true"></div>
@@ -180,7 +181,7 @@
 
           <section class="panel pad autopilot-panel">
             <div class="panel-head">
-              <div><div class="eyebrow">AUTO PILOT • AUTO EXECUTE PAPER</div><h2>Moteur automatique sur 200 cryptos matures • MTF AI • AUTO EXECUTE</h2><p>À chaque scan de 15 min, 200 cryptos disposant d’au moins 2 ans de recul sont réévaluées sur 15 min, 30 min, 1 h, 6 h, 12 h, 24 h, 7 j, 30 j et 1 an. Dès qu’AutoPilot est ON et que le DATA ENGINE est LIVE, le moteur exécute automatiquement un noyau pouvant aller jusqu’à 3 positions parmi les meilleurs candidats valides, puis peut compléter progressivement jusqu’à 10 positions simultanées. Chaque position engage 100 USDT sans levier. Il n’y a ni stop-loss fixe ni take-profit fixe : la sortie est décidée dynamiquement par le consensus IA, le momentum, la continuation et l’horizon, avec une limite de 5 jours.</p></div>
+              <div><div class="eyebrow">AUTO PILOT • AUTO EXECUTE PAPER</div><h2>Moteur automatique sur 200 cryptos matures • MTF AI • AUTO EXECUTE</h2><p>À chaque scan de 15 min, 200 cryptos disposant d’au moins 2 ans de recul sont réévaluées sur 15 min, 30 min, 1 h, 6 h, 12 h, 24 h, 7 j, 30 j et 1 an. AutoPilot ouvre jusqu’à cinq positions papier si le consensus est suffisant. Sorties sur objectif net, protection adaptée à la volatilité, repli du gain ou retournement confirmé. Horizon de dix minutes à quarante-huit heures sous conditions. Aucune ouverture forcée.</p></div>
               <label class="auto-switch"><input id="autoPilotToggle" type="checkbox" checked><span></span><b id="autoPilotLabel">AUTO ON</b></label>
             </div>
             <div class="auto-stats">
@@ -247,7 +248,7 @@
               <section class="panel pad ai-panel">
                 <div class="panel-head"><div><div class="ai-headline"><span class="ai-orb"></span><h2>Plan d’action IA</h2></div><p id="selectedStatus">—</p></div><div id="selectedScore" class="match-score">—</div></div>
                 <div class="selected-score-grid"><div><span>TECH</span><b id="selTech">—</b></div><div><span>QUANT</span><b id="selQuant">—</b></div><div><span>FOND.</span><b id="selFund">—</b></div><div><span>RÉGIME</span><b id="selRegime">—</b></div><div><span>MOMENTUM</span><b id="selFomo">—</b></div><div><span>RISK</span><b id="selRisk">—</b></div><div><span>MTF</span><b id="selMtf">—</b></div><div><span>EXPOSITION</span><b id="selLeverage">100 USDT</b></div></div>
-                <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Sortie défensive</span><b id="stopLevel">IA dynamique</b></div><div class="ai-level"><span>Prise de gain</span><b id="tp1Level">IA dynamique</b></div><div class="ai-level"><span>Horizon maximum</span><b id="tp2Level">5 jours</b></div></div>
+                <div class="ai-levels"><div class="ai-level"><span>Zone d’entrée</span><b id="entryZone">—</b></div><div class="ai-level"><span>Sortie défensive</span><b id="stopLevel">IA dynamique</b></div><div class="ai-level"><span>Prise de gain</span><b id="tp1Level">IA dynamique</b></div><div class="ai-level"><span>Horizon maximum</span><b id="tp2Level">48 heures</b></div></div>
                 <div id="selectedReason" class="ai-summary">—</div>
                 <div class="gain-grid"><div><span>Momentum</span><b id="gain1">—</b></div><div><span>Continuation</span><b id="gain2">—</b></div><div><span>Sortie IA</span><b id="gain3">DYNAMIQUE</b></div></div>
                 <button id="openOrderBtn" class="btn btn-ai" disabled>PRÉPARER UN ORDRE MANUEL</button><button id="sendSelectedToDesk" class="btn btn-blue desk-inline-btn" type="button">OUVRIR DANS LE TRADING DESK →</button><div id="orderEligibilityNote" class="ai-warning">—</div>
@@ -266,14 +267,14 @@
         </section>
 
         <section id="positions" class="page-section panel pad">
-          <div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — 3 minimum / 15 maximum</h2><p>AutoPilot exécute les positions papier automatiquement : il vise jusqu’à 3 positions de base quand des candidats LIVE valides existent, puis peut monter jusqu’à 15 si le consensus est assez fort. Aucun stop-loss fixe ni take-profit fixe : l’IA suit le momentum, la continuation, le P&L et l’horizon et décide seule du closing.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
+          <section id="dayDecisionDesk" class="panel" style="padding:20px;margin-bottom:20px"></section><div class="panel-head"><div><div class="eyebrow">LIVE BOOK • AUTO PORTFOLIO</div><h2>Positions ouvertes — 5 maximum</h2><p>Cinq positions au maximum, sans minimum forcé. Les gains et pertes réalisés sont comptabilisés chaque jour, nets des frais estimés. Le moteur reste une simulation et ne fonctionne que lorsque cette page est ouverte.</p></div><button id="refreshPositionsBtn" class="btn btn-blue small-btn">Actualiser les prix</button></div>
           <div class="auto-mechanism-strip">
             <span><b>200</b><small>cryptos matures 2 ans+</small></span>
             <span><b>15 min</b><small>cycle IA</small></span>
             <span><b>3 max</b><small>nouvelles entrées / scan</small></span>
             <span><b>15 max</b><small>positions simultanées</small></span>
             <span><b>100 USDT</b><small>marge / position</small></span>
-            <span><b>5 jours</b><small>horizon maximal</small></span>
+            <span><b>48 heures</b><small>horizon maximal</small></span>
           </div>
           <div id="positionsList" class="positions-list live-order-book"></div>
         </section>
@@ -388,16 +389,16 @@
         <label><span>Marge engagée</span><div class="input-suffix"><input id="capitalInput" class="control" type="number" value="100" readonly><b>USDT</b></div></label>
         <label><span>Prix exécuté / simulé</span><div class="input-suffix"><input id="executionInput" class="control" type="number" min="0" step="any"><b>USDT</b></div></label>
         
-        <label class="full-field"><span>Horizon de fermeture</span><select id="horizonSelect" class="control"><option value="auto">Horizon IA automatique</option><option value="60">1 heure</option><option value="240">4 heures</option><option value="720">12 heures</option><option value="1440">24 heures</option><option value="2880">48 heures</option><option value="7200">5 jours</option></select></label>
+        <label class="full-field"><span>Horizon de fermeture</span><select id="horizonSelect" class="control"><option value="auto">Horizon IA automatique</option><option value="10">10 minutes</option><option value="60">1 heure</option><option value="240">4 heures</option><option value="720">12 heures</option><option value="1440">24 heures</option></select></label>
       </div>
       <div class="ticket-summary"><div><span>Score IA</span><b id="ticketAi">—</b></div><div><span>MOMENTUM</span><b id="ticketFomo">—</b></div><div><span>Risk</span><b id="ticketStop">—</b></div><div><span>Closing</span><b id="ticketTps">IA dynamique</b></div><div><span>Horizon IA</span><b id="ticketHorizon">—</b></div><div><span>Frais A/R estimés</span><b id="ticketFees">—</b></div></div>
       <div class="manual-confirm"><input id="manualCheck" type="checkbox"><label for="manualCheck">Je confirme l’ouverture manuelle de cette position dans le simulateur EBYTDA.</label></div>
       <button id="confirmOrderBtn" class="btn btn-ai" disabled>CONFIRMER L’EXÉCUTION ET OUVRIR LA POSITION</button>
-      <p class="fineprint">Simulation uniquement. Aucun ordre réel n’est envoyé au broker. Pas de levier, pas de stop-loss fixe, pas de take-profit fixe : le moteur IA décide du closing selon momentum, consensus, P&L et horizon.</p>
+      <p class="fineprint">Simulation uniquement. Aucun ordre réel n’est envoyé au broker. Sans levier. Protection dynamique, objectif net et invalidation du signal. Scores algorithmiques, sans garantie de performance.</p>
     </section>
   </div>
 
-  <script src="app.js?v=20260920-momentum"></script>
+  <script defer src="macro-watch.js?v=33"></script><script src="decision-engine.js?v=33"></script><script src="app.js?v=33"></script>
   <script defer src="broker-connect.js?v=20260920-momentum"></script>
   <script defer src="i18n-v31.js?v=20260920-fix5"></script>
 </body>
